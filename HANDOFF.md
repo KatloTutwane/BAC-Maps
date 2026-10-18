@@ -1,21 +1,21 @@
 # Campus Navigator: Isometric Map Builder, handover
 
-**Status as of 4 October 2026, evening.** The whole campus is mapped: 22 buildings, the roads, parking, walkways, indoor corridors and the chilling area. The map is now a reusable JavaScript module that a website or an app can host. Still open: three naming questions, the website and app tech stack, and confirming the pathfinding assumptions in 2.2. This document is for whoever picks the work up next.
+**Status as of 18 October 2026.** The whole campus is mapped: 22 buildings, the roads, parking, walkways, indoor corridors and the chilling area, plus the main building's interior on both floors and a first measured footpath (Main Gate to Hostels). The map is now a reusable JavaScript module that a website or an app can host. Still open: three naming questions, the website and app tech stack, and confirming the pathfinding and main-building-interior assumptions (sections 2.2, 2.2b). This document is for whoever picks the work up next.
 
-| | |
-|---|---|
+| |                                                                                   |
+|---|-----------------------------------------------------------------------------------|
 | Project | Campus Navigator, BAC group project. This is the Isometric Map Builder component. |
-| Owner so far | Sharks (Data Collection lead) |
-| Live map | https://claude.ai/artifact/3EzUuUd3evcCJySArTnKeD (private: share it from the page's Share menu before teammates can open it) |
-| Code | `campus-navigator-map/` (this folder) |
-| View | Open `web/index.html` in any browser. No server or Python needed. |
-| Rebuild data | `pip install -r requirements.txt`, then `python pipeline/build.py` |
+| Owner so far | Maroon 5                                                                          |
+
+| Code | `campus-navigator-map/` (this folder)                                                                                         |
+| View | Open `web/index.html` in any browser. No server or Python needed.                                                             |
+| Rebuild data | `pip install -r requirements.txt`, then `python pipeline/build.py`                                                            |
 
 ---
 
 ## 1. What exists today
 
-**On the map:** 22 buildings, 3 roads, 8 routes (2 indoor corridors and 2 bridges among them), 10 ground areas (parking, staff parking, yards, paved areas), 1 raised area (the chilling area rock) and 2 stairwells.
+**On the map:** 22 buildings, 3 roads, 9 routes (2 indoor corridors, 2 bridges and 1 measured walk among them), 10 ground areas (parking, staff parking, yards, paved areas), 1 raised area (the chilling area rock) and 2 stairwells.
 
 **The renderer** (`web/campus-map.js`, plain JavaScript and SVG, no libraries):
 - Mounts into any element on any page: `CampusMap.mount(element, { data })`
@@ -30,7 +30,9 @@
 - `web/index.html`: demo page with a floor selector, search and an example route. It only uses the public API, so it doubles as sample code for the website.
 - `web/embed.html`: the bare map for a WebView or iframe, with a message bridge for Android, Flutter, React Native, iOS and iframes. See README, "Using the map in a website or app".
 
-**The pipeline** (`pipeline/`, Python): turns the Google Earth traces into `map_data.json`. Edit `config.py` for anything a person decides; the code doesn't need touching. A clean rebuild from `data/raw/` reproduces the data byte for byte, which was checked on every release.
+**The pipeline** (`pipeline/`, Python): turns the Google Earth traces into `map_data.json`. Edit `config.py` for anything a person decides; the code doesn't need touching. A clean rebuild from `data/raw/` reproduces the data byte for byte, which was checked on every release. It also turns measured GPS walks (`data/raw/walks/`) into footpaths that routes prefer when about as short, checked by `tests/walks.test.js`.
+
+**Main building interiors** (added 12 October, see 2.2b): 40 rooms across both floors, derived from two drawings and fitted to the satellite footprint, with doors and five staircases. `pipeline/interiors.py` builds `web/interiors.json`; the pathfinder reads it directly.
 
 **Tested:** desktop mouse (click, wheel zoom, drag), phone touch (tap select, fits the screen, no sideways scrolling), the app bridge in both directions (commands in, `ready` and `select` events out). No script errors.
 
@@ -103,8 +105,13 @@ Renaming is one line in `config.py` (`KML_BUILDINGS`) or a rename in Google Eart
 ```
 data/raw/campus_footprints.geojson ─┐                       ┌─> data/map_data.json
 data/raw/bac_maps.kml ──────────────┼─> pipeline/build.py ──┼─> web/map_data.json
-pipeline/config.py ─────────────────┘                       └─> web/map_data.js
+data/raw/walks/ ─────────────────────┘                       └─> web/map_data.js ───────┐
+pipeline/config.py ──────────────────┘                                                  │
+drawings/ ───> pipeline/interiors.py ──> web/interiors.json, web/interiors.js, renders/ ┤
+                                                                                         │
+                                     web/campus-map.js ──── draws ──────────────────────┘
 ```
+(full detail, including the renderer's three pages, is in README, "How it works")
 
 **To update the map after tracing in Earth:**
 1. In Earth, **Save** each new shape (it only joins the project once saved), then export the project as KML.
@@ -156,19 +163,25 @@ Names in `config.py` must match the KML exactly. A repeated name gets " (2)" add
 campus-navigator-map/
 ├── HANDOFF.md              this file
 ├── README.md               setup, algorithms, API, integration, update guide
-├── requirements.txt        numpy, scipy, shapely, contourpy (pipeline only)
+├── requirements.txt        numpy, scipy, shapely, contourpy, pillow (pipeline only)
 ├── drawings/               the two draft-09 drawings used for the interiors
-├── tests/                  nav.test.js, interiors.test.js, concurrency.test.js (node); e2e_core.py, e2e_perf.py, e2e_floors.py (browser)
+├── tests/                  nav.test.js, interiors.test.js, concurrency.test.js, walks.test.js, scenarios.test.js (node);
+│                           e2e_core.py, e2e_perf.py, e2e_floors.py, e2e.py (browser, needs Playwright)
 ├── data/
 │   ├── raw/
 │   │   ├── campus_footprints.geojson   original satellite outlines
-│   │   └── bac_maps.kml                latest Google Earth export
+│   │   ├── bac_maps.kml                latest Google Earth export
+│   │   └── walks/                      measured GPS walks, one file per walk (see 1, "footpaths")
 │   └── map_data.json       generated master copy; do not edit by hand
 ├── pipeline/
 │   ├── config.py           edit this
 │   ├── geo.py
 │   ├── geometry.py
-│   └── build.py
+│   ├── build.py
+│   ├── export_doors.js     doors derived from map_data.json, for interiors.py to read
+│   └── interiors.py        main building floors from drawings/ (see 2.2b)
+├── tools/
+│   └── serve.py            local dev server (README, "Detailed renders")
 └── web/
     ├── campus-map.js       the renderer module; edit this for visual changes
     ├── index.html          demo page and sample code
@@ -178,7 +191,8 @@ campus-navigator-map/
     ├── pathfinder.html/.js the pathfinder game (README, "Pathfinder game")
     ├── nav-engine.js       navigation model, A*, collision
     ├── nav_seed.js         assumed links (see 2.2; replaced by interiors when present)
-    └── interiors.json/.js  rooms, doors, stairs per floor (generated, see 2.2b)
+    ├── interiors.json/.js  rooms, doors, stairs per floor (generated, see 2.2b)
+    └── renders/            ground_floor.webp, upper_floor.webp (generated by interiors.py)
 ```
 
 ---

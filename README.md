@@ -217,5 +217,5 @@ The pathfinder now knows the inside of the main building on two floors: 40 rooms
 ## Not built yet
 
 - A Python or server side A*. The team spec asked for one; pathfinding currently runs in the browser (`nav-engine.js`), which also works offline and inside a WebView. The graph builder is a pure function of `map_data.json`, so porting it is mechanical.
-- Rooms. The map has none, so room destinations come from the editor.
+- Rooms outside the main building. The main building has room data on both floors (see "Main building floors"); every other building still has none, so destinations there come from the editor.
 - WebGL. The renderer is SVG, so instancing, LOD and draw calls do not apply; the scene is about 480 elements and a full redraw takes 10-35 ms.
