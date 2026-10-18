@@ -1,0 +1,2135 @@
+{
+  "type": "FeatureCollection",
+  "format": "campus-mapper",
+  "version": 2,
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.92709119352033,
+              -24.68095229560867
+            ],
+            [
+              25.92716343754717,
+              -24.680954684904563
+            ],
+            [
+              25.927151070757656,
+              -24.680848012918663
+            ],
+            [
+              25.927089305310616,
+              -24.68085114295704
+            ],
+            [
+              25.92709119352033,
+              -24.68095229560867
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "building_footprint",
+        "recording_id": "1789587370753_7e5fb1bf",
+        "name": "Block k",
+        "project_id": "1789586963710_2c9f2b51",
+        "recorded_at": "2026-09-16T19:36:10.753724Z",
+        "accuracy_m": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "capture_method": [
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite"
+        ],
+        "locked": false,
+        "verified": "draft",
+        "session_capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "vertex_ids": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.927027734420754,
+              -24.681086409580317
+            ],
+            [
+              25.927078041891544,
+              -24.681122772920208
+            ],
+            [
+              25.927150587453337,
+              -24.68102961634707
+            ],
+            [
+              25.927113278410605,
+              -24.681000278515818
+            ],
+            [
+              25.927027734420754,
+              -24.681086409580317
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "building_footprint",
+        "recording_id": "1789587354078_40f1b55b",
+        "name": "Pc 1",
+        "project_id": "1789586963710_2c9f2b51",
+        "recorded_at": "2026-09-16T19:35:54.078782Z",
+        "accuracy_m": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "capture_method": [
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite"
+        ],
+        "locked": false,
+        "verified": "draft",
+        "session_capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "vertex_ids": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.926953826437618,
+              -24.68116215927693
+            ],
+            [
+              25.92705080515512,
+              -24.681160953127176
+            ],
+            [
+              25.927053612926173,
+              -24.681125985969228
+            ],
+            [
+              25.926966140331164,
+              -24.681120602174158
+            ],
+            [
+              25.926953826437618,
+              -24.68116215927693
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "building_footprint",
+        "recording_id": "1789587336717_4a9c99ea",
+        "name": "Block f",
+        "project_id": "1789586963710_2c9f2b51",
+        "recorded_at": "2026-09-16T19:35:36.717880Z",
+        "accuracy_m": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "capture_method": [
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite"
+        ],
+        "locked": false,
+        "verified": "draft",
+        "session_capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "vertex_ids": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.926802468985645,
+              -24.68122124050797
+            ],
+            [
+              25.926789482507555,
+              -24.6813437089415
+            ],
+            [
+              25.926870985268973,
+              -24.681361401285194
+            ],
+            [
+              25.926881630569937,
+              -24.681322777442613
+            ],
+            [
+              25.926995329454723,
+              -24.681315613737286
+            ],
+            [
+              25.92700540177862,
+              -24.681197264039007
+            ],
+            [
+              25.926901781213733,
+              -24.681200759998163
+            ],
+            [
+              25.926909524621042,
+              -24.681233468499567
+            ],
+            [
+              25.926879819447404,
+              -24.681239523556798
+            ],
+            [
+              25.926802468985645,
+              -24.68122124050797
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "building_footprint",
+        "recording_id": "1789587310939_8521f73",
+        "name": "Hostel 3",
+        "project_id": "1789586963710_2c9f2b51",
+        "recorded_at": "2026-09-16T19:35:10.939825Z",
+        "accuracy_m": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "capture_method": [
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite"
+        ],
+        "locked": false,
+        "verified": "draft",
+        "session_capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "vertex_ids": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.926575973116787,
+              -24.681183266514413
+            ],
+            [
+              25.92655967866596,
+              -24.681297808606633
+            ],
+            [
+              25.926641230724705,
+              -24.68131286974511
+            ],
+            [
+              25.92665231672534,
+              -24.68135872395113
+            ],
+            [
+              25.926753338922587,
+              -24.681339201236895
+            ],
+            [
+              25.9267633925253,
+              -24.681219297842244
+            ],
+            [
+              25.926666301903754,
+              -24.68122837657163
+            ],
+            [
+              25.92664892055212,
+              -24.681201012580388
+            ],
+            [
+              25.926575973116787,
+              -24.681183266514413
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "building_footprint",
+        "recording_id": "1789587284045_7f705f3b",
+        "name": "Hostel 2",
+        "project_id": "1789586963710_2c9f2b51",
+        "recorded_at": "2026-09-16T19:34:44.045586Z",
+        "accuracy_m": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "capture_method": [
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite"
+        ],
+        "locked": false,
+        "verified": "draft",
+        "session_capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "vertex_ids": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.926690978707356,
+              -24.680959680257676
+            ],
+            [
+              25.92667447442046,
+              -24.681078426200095
+            ],
+            [
+              25.926760953026417,
+              -24.681091620808427
+            ],
+            [
+              25.926766985865005,
+              -24.681067464298376
+            ],
+            [
+              25.926799171335897,
+              -24.681071410595006
+            ],
+            [
+              25.9267927741432,
+              -24.6810985414814
+            ],
+            [
+              25.926883854108485,
+              -24.68109776731789
+            ],
+            [
+              25.926889786278643,
+              -24.68097761207743
+            ],
+            [
+              25.926776663361448,
+              -24.680984047475455
+            ],
+            [
+              25.926770126257352,
+              -24.68096631500358
+            ],
+            [
+              25.926690978707356,
+              -24.680959680257676
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "building_footprint",
+        "recording_id": "1789587260337_6207e072",
+        "name": "Hostel 1",
+        "project_id": "1789586963710_2c9f2b51",
+        "recorded_at": "2026-09-16T19:34:20.338115Z",
+        "accuracy_m": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "capture_method": [
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite"
+        ],
+        "locked": false,
+        "verified": "draft",
+        "session_capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "vertex_ids": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.926478240096472,
+              -24.681131433724605
+            ],
+            [
+              25.926563938829737,
+              -24.681140748759564
+            ],
+            [
+              25.9265674518644,
+              -24.68109838298945
+            ],
+            [
+              25.926617517919063,
+              -24.681097470753837
+            ],
+            [
+              25.92663159967151,
+              -24.681014829390655
+            ],
+            [
+              25.92654879267177,
+              -24.681012215301642
+            ],
+            [
+              25.92654166050971,
+              -24.68104587998942
+            ],
+            [
+              25.926497758435094,
+              -24.6810613457659
+            ],
+            [
+              25.926478240096472,
+              -24.681131433724605
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "building_footprint",
+        "recording_id": "1789587225207_593db1d0",
+        "name": "Maitron house",
+        "project_id": "1789586963710_2c9f2b51",
+        "recorded_at": "2026-09-16T19:33:45.207241Z",
+        "accuracy_m": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "capture_method": [
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite"
+        ],
+        "locked": false,
+        "verified": "draft",
+        "session_capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "vertex_ids": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.926280428700245,
+              -24.681188453513975
+            ],
+            [
+              25.926392442959035,
+              -24.68118087004932
+            ],
+            [
+              25.926394315237168,
+              -24.68114370088869
+            ],
+            [
+              25.92628197455777,
+              -24.68114901883469
+            ],
+            [
+              25.926280428700245,
+              -24.681188453513975
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "building_footprint",
+        "recording_id": "1789587177920_630974f4",
+        "name": "Block f",
+        "project_id": "1789586963710_2c9f2b51",
+        "recorded_at": "2026-09-16T19:32:57.920203Z",
+        "accuracy_m": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "capture_method": [
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite"
+        ],
+        "locked": false,
+        "verified": "draft",
+        "session_capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "vertex_ids": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.926355442522045,
+              -24.681125191489887
+            ],
+            [
+              25.926421776733086,
+              -24.681126603079544
+            ],
+            [
+              25.926416515467743,
+              -24.681016416836563
+            ],
+            [
+              25.926361302557776,
+              -24.681014399663344
+            ],
+            [
+              25.926355442522045,
+              -24.681125191489887
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "building_footprint",
+        "recording_id": "1789587158773_1d957c00",
+        "name": "Block g",
+        "project_id": "1789586963710_2c9f2b51",
+        "recorded_at": "2026-09-16T19:32:38.773264Z",
+        "accuracy_m": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "capture_method": [
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite"
+        ],
+        "locked": false,
+        "verified": "draft",
+        "session_capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "vertex_ids": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.92608380895692,
+              -24.681327359486833
+            ],
+            [
+              25.92607582126965,
+              -24.681397770146006
+            ],
+            [
+              25.92625230247558,
+              -24.681399051292857
+            ],
+            [
+              25.926267539716367,
+              -24.681327567224265
+            ],
+            [
+              25.92608380895692,
+              -24.681327359486833
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "building_footprint",
+        "recording_id": "1789587132284_73c8a9a7",
+        "name": "Block A/B",
+        "project_id": "1789586963710_2c9f2b51",
+        "recorded_at": "2026-09-16T19:32:12.284988Z",
+        "accuracy_m": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "capture_method": [
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite"
+        ],
+        "locked": false,
+        "verified": "draft",
+        "session_capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "vertex_ids": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.926159676254688,
+              -24.681058192071344
+            ],
+            [
+              25.92619283274052,
+              -24.681086972407787
+            ],
+            [
+              25.926284389709288,
+              -24.681020109229973
+            ],
+            [
+              25.9262485683357,
+              -24.680980264492078
+            ],
+            [
+              25.926159676254688,
+              -24.681058192071344
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "building_footprint",
+        "recording_id": "1789587100418_6a34cd50",
+        "name": "Block D",
+        "project_id": "1789586963710_2c9f2b51",
+        "recorded_at": "2026-09-16T19:31:40.418698Z",
+        "accuracy_m": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "capture_method": [
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite"
+        ],
+        "locked": false,
+        "verified": "draft",
+        "session_capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "vertex_ids": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.92613287940019,
+              -24.681260878049674
+            ],
+            [
+              25.92600327288591,
+              -24.681143096059337
+            ],
+            [
+              25.925994314966786,
+              -24.681008071327916
+            ],
+            [
+              25.926113956907177,
+              -24.680888098124644
+            ],
+            [
+              25.926121090511643,
+              -24.68072884966654
+            ],
+            [
+              25.92603055848265,
+              -24.68064922062696
+            ],
+            [
+              25.925974414064335,
+              -24.680594248268424
+            ],
+            [
+              25.925885191903077,
+              -24.680599922623376
+            ],
+            [
+              25.92580684413045,
+              -24.680539731748368
+            ],
+            [
+              25.925797459009726,
+              -24.680470189078548
+            ],
+            [
+              25.925747523244606,
+              -24.6805069532826
+            ],
+            [
+              25.925688339398377,
+              -24.680518951739213
+            ],
+            [
+              25.92563217868506,
+              -24.680475006012763
+            ],
+            [
+              25.92563723404943,
+              -24.680411330434886
+            ],
+            [
+              25.925673915730556,
+              -24.680368014013304
+            ],
+            [
+              25.92574759637974,
+              -24.680364614564695
+            ],
+            [
+              25.925799318889577,
+              -24.68040954916566
+            ],
+            [
+              25.925793226732118,
+              -24.680441719945044
+            ],
+            [
+              25.92585108215645,
+              -24.680398990410122
+            ],
+            [
+              25.92585578598314,
+              -24.680319920037952
+            ],
+            [
+              25.925922207091393,
+              -24.680244539734865
+            ],
+            [
+              25.925926558318128,
+              -24.680198099258252
+            ],
+            [
+              25.92591725451728,
+              -24.68017284099275
+            ],
+            [
+              25.925905645081265,
+              -24.680204283084795
+            ],
+            [
+              25.925879299341798,
+              -24.68021495572374
+            ],
+            [
+              25.92585029449927,
+              -24.680207712004538
+            ],
+            [
+              25.925831611098882,
+              -24.680185569457844
+            ],
+            [
+              25.925864049594292,
+              -24.680144965405212
+            ],
+            [
+              25.92584823214982,
+              -24.680134747911517
+            ],
+            [
+              25.925769145660777,
+              -24.680138403537445
+            ],
+            [
+              25.925695458890974,
+              -24.68019090013153
+            ],
+            [
+              25.925603744727113,
+              -24.680139920364915
+            ],
+            [
+              25.925702842363727,
+              -24.680050615294167
+            ],
+            [
+              25.925986674760036,
+              -24.68003571874904
+            ],
+            [
+              25.92602138278581,
+              -24.68008331482568
+            ],
+            [
+              25.92603551436108,
+              -24.680285290808545
+            ],
+            [
+              25.925950837323573,
+              -24.68037805294136
+            ],
+            [
+              25.92593655050073,
+              -24.680427163337843
+            ],
+            [
+              25.925993386024537,
+              -24.68046813662258
+            ],
+            [
+              25.92603069996368,
+              -24.68047062279794
+            ],
+            [
+              25.926064976734096,
+              -24.68049653406309
+            ],
+            [
+              25.9260704905565,
+              -24.680536329726298
+            ],
+            [
+              25.926216531019065,
+              -24.680683183342104
+            ],
+            [
+              25.92621613806647,
+              -24.680928816474133
+            ],
+            [
+              25.926085781810123,
+              -24.681073620869196
+            ],
+            [
+              25.926190956523858,
+              -24.681187713348496
+            ],
+            [
+              25.92613287940019,
+              -24.681260878049674
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "kind": "building_footprint",
+        "recording_id": "1789587068542_4643f235",
+        "name": "Main buildin",
+        "project_id": "1789586963710_2c9f2b51",
+        "recorded_at": "2026-09-16T19:31:08.542464Z",
+        "accuracy_m": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "capture_method": [
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite",
+          "satellite"
+        ],
+        "locked": false,
+        "verified": "draft",
+        "session_capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "vertex_ids": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    }
+  ],
+  "campus_data_collector": {
+    "format": "campus_project_v1",
+    "project_format": "campus-mapper",
+    "version": 2,
+    "project": {
+      "id": "1789586963710_2c9f2b51",
+      "name": "Bac campus",
+      "created_at": "2026-09-16T19:29:23.712797Z",
+      "verified": "draft"
+    },
+    "sessions": [
+      {
+        "id": "1789587370753_7e5fb1bf",
+        "project_id": "1789586963710_2c9f2b51",
+        "kind": "building_footprint",
+        "name": "Block k",
+        "recorded_at": "2026-09-16T19:36:10.753724Z",
+        "photo_path": null,
+        "capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "points": [
+          {
+            "lat": -24.68095229560867,
+            "lng": 25.92709119352033,
+            "timestamp": "2026-09-16T19:36:01.406773Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680954684904563,
+            "lng": 25.92716343754717,
+            "timestamp": "2026-09-16T19:36:02.325734Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680848012918663,
+            "lng": 25.927151070757656,
+            "timestamp": "2026-09-16T19:36:03.352151Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68085114295704,
+            "lng": 25.927089305310616,
+            "timestamp": "2026-09-16T19:36:04.410309Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          }
+        ],
+        "rooms": [],
+        "corridors": [],
+        "vertical_accesses": [],
+        "volume_sketches": [],
+        "locked": false,
+        "verified": "draft"
+      },
+      {
+        "id": "1789587354078_40f1b55b",
+        "project_id": "1789586963710_2c9f2b51",
+        "kind": "building_footprint",
+        "name": "Pc 1",
+        "recorded_at": "2026-09-16T19:35:54.078782Z",
+        "photo_path": null,
+        "capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "points": [
+          {
+            "lat": -24.681086409580317,
+            "lng": 25.927027734420754,
+            "timestamp": "2026-09-16T19:35:45.255814Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681122772920208,
+            "lng": 25.927078041891544,
+            "timestamp": "2026-09-16T19:35:46.264886Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68102961634707,
+            "lng": 25.927150587453337,
+            "timestamp": "2026-09-16T19:35:47.240533Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681000278515818,
+            "lng": 25.927113278410605,
+            "timestamp": "2026-09-16T19:35:48.467072Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          }
+        ],
+        "rooms": [],
+        "corridors": [],
+        "vertical_accesses": [],
+        "volume_sketches": [],
+        "locked": false,
+        "verified": "draft"
+      },
+      {
+        "id": "1789587336717_4a9c99ea",
+        "project_id": "1789586963710_2c9f2b51",
+        "kind": "building_footprint",
+        "name": "Block f",
+        "recorded_at": "2026-09-16T19:35:36.717880Z",
+        "photo_path": null,
+        "capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "points": [
+          {
+            "lat": -24.68116215927693,
+            "lng": 25.926953826437618,
+            "timestamp": "2026-09-16T19:35:27.220030Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681160953127176,
+            "lng": 25.92705080515512,
+            "timestamp": "2026-09-16T19:35:28.245706Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681125985969228,
+            "lng": 25.927053612926173,
+            "timestamp": "2026-09-16T19:35:29.179793Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681120602174158,
+            "lng": 25.926966140331164,
+            "timestamp": "2026-09-16T19:35:30.448673Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          }
+        ],
+        "rooms": [],
+        "corridors": [],
+        "vertical_accesses": [],
+        "volume_sketches": [],
+        "locked": false,
+        "verified": "draft"
+      },
+      {
+        "id": "1789587310939_8521f73",
+        "project_id": "1789586963710_2c9f2b51",
+        "kind": "building_footprint",
+        "name": "Hostel 3",
+        "recorded_at": "2026-09-16T19:35:10.939825Z",
+        "photo_path": null,
+        "capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "points": [
+          {
+            "lat": -24.68122124050797,
+            "lng": 25.926802468985645,
+            "timestamp": "2026-09-16T19:34:52.359865Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.6813437089415,
+            "lng": 25.926789482507555,
+            "timestamp": "2026-09-16T19:34:53.292791Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681361401285194,
+            "lng": 25.926870985268973,
+            "timestamp": "2026-09-16T19:34:54.161438Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681322777442613,
+            "lng": 25.926881630569937,
+            "timestamp": "2026-09-16T19:34:55.436172Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681315613737286,
+            "lng": 25.926995329454723,
+            "timestamp": "2026-09-16T19:34:56.511686Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681197264039007,
+            "lng": 25.92700540177862,
+            "timestamp": "2026-09-16T19:34:57.587637Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681200759998163,
+            "lng": 25.926901781213733,
+            "timestamp": "2026-09-16T19:34:58.614049Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681233468499567,
+            "lng": 25.926909524621042,
+            "timestamp": "2026-09-16T19:34:59.682812Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681239523556798,
+            "lng": 25.926879819447404,
+            "timestamp": "2026-09-16T19:35:00.741132Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          }
+        ],
+        "rooms": [],
+        "corridors": [],
+        "vertical_accesses": [],
+        "volume_sketches": [],
+        "locked": false,
+        "verified": "draft"
+      },
+      {
+        "id": "1789587284045_7f705f3b",
+        "project_id": "1789586963710_2c9f2b51",
+        "kind": "building_footprint",
+        "name": "Hostel 2",
+        "recorded_at": "2026-09-16T19:34:44.045586Z",
+        "photo_path": null,
+        "capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "points": [
+          {
+            "lat": -24.681183266514413,
+            "lng": 25.926575973116787,
+            "timestamp": "2026-09-16T19:34:27.308665Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681297808606633,
+            "lng": 25.92655967866596,
+            "timestamp": "2026-09-16T19:34:28.283050Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68131286974511,
+            "lng": 25.926641230724705,
+            "timestamp": "2026-09-16T19:34:29.376092Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68135872395113,
+            "lng": 25.92665231672534,
+            "timestamp": "2026-09-16T19:34:31.995950Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681339201236895,
+            "lng": 25.926753338922587,
+            "timestamp": "2026-09-16T19:34:33.390231Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681219297842244,
+            "lng": 25.9267633925253,
+            "timestamp": "2026-09-16T19:34:34.731187Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68122837657163,
+            "lng": 25.926666301903754,
+            "timestamp": "2026-09-16T19:34:36.117235Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681201012580388,
+            "lng": 25.92664892055212,
+            "timestamp": "2026-09-16T19:34:37.467675Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          }
+        ],
+        "rooms": [],
+        "corridors": [],
+        "vertical_accesses": [],
+        "volume_sketches": [],
+        "locked": false,
+        "verified": "draft"
+      },
+      {
+        "id": "1789587260337_6207e072",
+        "project_id": "1789586963710_2c9f2b51",
+        "kind": "building_footprint",
+        "name": "Hostel 1",
+        "recorded_at": "2026-09-16T19:34:20.338115Z",
+        "photo_path": null,
+        "capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "points": [
+          {
+            "lat": -24.680959680257676,
+            "lng": 25.926690978707356,
+            "timestamp": "2026-09-16T19:33:57.843104Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681078426200095,
+            "lng": 25.92667447442046,
+            "timestamp": "2026-09-16T19:33:59.053620Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681091620808427,
+            "lng": 25.926760953026417,
+            "timestamp": "2026-09-16T19:34:00.036158Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681067464298376,
+            "lng": 25.926766985865005,
+            "timestamp": "2026-09-16T19:34:05.902181Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681071410595006,
+            "lng": 25.926799171335897,
+            "timestamp": "2026-09-16T19:34:07.096064Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.6810985414814,
+            "lng": 25.9267927741432,
+            "timestamp": "2026-09-16T19:34:08.153929Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68109776731789,
+            "lng": 25.926883854108485,
+            "timestamp": "2026-09-16T19:34:09.731794Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68097761207743,
+            "lng": 25.926889786278643,
+            "timestamp": "2026-09-16T19:34:10.839736Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680984047475455,
+            "lng": 25.926776663361448,
+            "timestamp": "2026-09-16T19:34:12.125309Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68096631500358,
+            "lng": 25.926770126257352,
+            "timestamp": "2026-09-16T19:34:13.418121Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          }
+        ],
+        "rooms": [],
+        "corridors": [],
+        "vertical_accesses": [],
+        "volume_sketches": [],
+        "locked": false,
+        "verified": "draft"
+      },
+      {
+        "id": "1789587225207_593db1d0",
+        "project_id": "1789586963710_2c9f2b51",
+        "kind": "building_footprint",
+        "name": "Maitron house",
+        "recorded_at": "2026-09-16T19:33:45.207241Z",
+        "photo_path": null,
+        "capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "points": [
+          {
+            "lat": -24.681131433724605,
+            "lng": 25.926478240096472,
+            "timestamp": "2026-09-16T19:33:21.877947Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681140748759564,
+            "lng": 25.926563938829737,
+            "timestamp": "2026-09-16T19:33:23.002478Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68109838298945,
+            "lng": 25.9265674518644,
+            "timestamp": "2026-09-16T19:33:24.163256Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681097470753837,
+            "lng": 25.926617517919063,
+            "timestamp": "2026-09-16T19:33:26.273830Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681014829390655,
+            "lng": 25.92663159967151,
+            "timestamp": "2026-09-16T19:33:27.582671Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681012215301642,
+            "lng": 25.92654879267177,
+            "timestamp": "2026-09-16T19:33:29.077931Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68104587998942,
+            "lng": 25.92654166050971,
+            "timestamp": "2026-09-16T19:33:30.344560Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.6810613457659,
+            "lng": 25.926497758435094,
+            "timestamp": "2026-09-16T19:33:31.378156Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          }
+        ],
+        "rooms": [],
+        "corridors": [],
+        "vertical_accesses": [],
+        "volume_sketches": [],
+        "locked": false,
+        "verified": "draft"
+      },
+      {
+        "id": "1789587177920_630974f4",
+        "project_id": "1789586963710_2c9f2b51",
+        "kind": "building_footprint",
+        "name": "Block f",
+        "recorded_at": "2026-09-16T19:32:57.920203Z",
+        "photo_path": null,
+        "capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "points": [
+          {
+            "lat": -24.681188453513975,
+            "lng": 25.926280428700245,
+            "timestamp": "2026-09-16T19:32:44.834209Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68118087004932,
+            "lng": 25.926392442959035,
+            "timestamp": "2026-09-16T19:32:46.052595Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68114370088869,
+            "lng": 25.926394315237168,
+            "timestamp": "2026-09-16T19:32:47.087719Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68114901883469,
+            "lng": 25.92628197455777,
+            "timestamp": "2026-09-16T19:32:48.423742Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          }
+        ],
+        "rooms": [],
+        "corridors": [],
+        "vertical_accesses": [],
+        "volume_sketches": [],
+        "locked": false,
+        "verified": "draft"
+      },
+      {
+        "id": "1789587158773_1d957c00",
+        "project_id": "1789586963710_2c9f2b51",
+        "kind": "building_footprint",
+        "name": "Block g",
+        "recorded_at": "2026-09-16T19:32:38.773264Z",
+        "photo_path": null,
+        "capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "points": [
+          {
+            "lat": -24.681125191489887,
+            "lng": 25.926355442522045,
+            "timestamp": "2026-09-16T19:32:25.313915Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681126603079544,
+            "lng": 25.926421776733086,
+            "timestamp": "2026-09-16T19:32:26.440806Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681016416836563,
+            "lng": 25.926416515467743,
+            "timestamp": "2026-09-16T19:32:28.049140Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681014399663344,
+            "lng": 25.926361302557776,
+            "timestamp": "2026-09-16T19:32:29.259701Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          }
+        ],
+        "rooms": [],
+        "corridors": [],
+        "vertical_accesses": [],
+        "volume_sketches": [],
+        "locked": false,
+        "verified": "draft"
+      },
+      {
+        "id": "1789587132284_73c8a9a7",
+        "project_id": "1789586963710_2c9f2b51",
+        "kind": "building_footprint",
+        "name": "Block A/B",
+        "recorded_at": "2026-09-16T19:32:12.284988Z",
+        "photo_path": null,
+        "capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "points": [
+          {
+            "lat": -24.681327359486833,
+            "lng": 25.92608380895692,
+            "timestamp": "2026-09-16T19:31:53.329165Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681397770146006,
+            "lng": 25.92607582126965,
+            "timestamp": "2026-09-16T19:31:54.287711Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681399051292857,
+            "lng": 25.92625230247558,
+            "timestamp": "2026-09-16T19:31:55.306159Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681327567224265,
+            "lng": 25.926267539716367,
+            "timestamp": "2026-09-16T19:31:56.524074Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          }
+        ],
+        "rooms": [],
+        "corridors": [],
+        "vertical_accesses": [],
+        "volume_sketches": [],
+        "locked": false,
+        "verified": "draft"
+      },
+      {
+        "id": "1789587100418_6a34cd50",
+        "project_id": "1789586963710_2c9f2b51",
+        "kind": "building_footprint",
+        "name": "Block D",
+        "recorded_at": "2026-09-16T19:31:40.418698Z",
+        "photo_path": null,
+        "capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "points": [
+          {
+            "lat": -24.681058192071344,
+            "lng": 25.926159676254688,
+            "timestamp": "2026-09-16T19:31:21.927081Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681086972407787,
+            "lng": 25.92619283274052,
+            "timestamp": "2026-09-16T19:31:22.886224Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681020109229973,
+            "lng": 25.926284389709288,
+            "timestamp": "2026-09-16T19:31:23.979031Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680980264492078,
+            "lng": 25.9262485683357,
+            "timestamp": "2026-09-16T19:31:25.397038Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          }
+        ],
+        "rooms": [],
+        "corridors": [],
+        "vertical_accesses": [],
+        "volume_sketches": [],
+        "locked": false,
+        "verified": "draft"
+      },
+      {
+        "id": "1789587068542_4643f235",
+        "project_id": "1789586963710_2c9f2b51",
+        "kind": "building_footprint",
+        "name": "Main buildin",
+        "recorded_at": "2026-09-16T19:31:08.542464Z",
+        "photo_path": null,
+        "capture_mode": "satellite",
+        "measurement_source": "satellite",
+        "points": [
+          {
+            "lat": -24.681260878049674,
+            "lng": 25.92613287940019,
+            "timestamp": "2026-09-16T19:29:40.815889Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681143096059337,
+            "lng": 25.92600327288591,
+            "timestamp": "2026-09-16T19:29:41.903854Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681008071327916,
+            "lng": 25.925994314966786,
+            "timestamp": "2026-09-16T19:29:43.070875Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680888098124644,
+            "lng": 25.926113956907177,
+            "timestamp": "2026-09-16T19:29:45.130967Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68072884966654,
+            "lng": 25.926121090511643,
+            "timestamp": "2026-09-16T19:29:47.017195Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68064922062696,
+            "lng": 25.92603055848265,
+            "timestamp": "2026-09-16T19:29:48.916983Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680594248268424,
+            "lng": 25.925974414064335,
+            "timestamp": "2026-09-16T19:29:52.630928Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680599922623376,
+            "lng": 25.925885191903077,
+            "timestamp": "2026-09-16T19:29:53.911973Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680539731748368,
+            "lng": 25.92580684413045,
+            "timestamp": "2026-09-16T19:29:55.183163Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680470189078548,
+            "lng": 25.925797459009726,
+            "timestamp": "2026-09-16T19:29:56.294093Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.6805069532826,
+            "lng": 25.925747523244606,
+            "timestamp": "2026-09-16T19:29:59.896968Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680518951739213,
+            "lng": 25.925688339398377,
+            "timestamp": "2026-09-16T19:30:01.347735Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680475006012763,
+            "lng": 25.92563217868506,
+            "timestamp": "2026-09-16T19:30:02.405820Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680411330434886,
+            "lng": 25.92563723404943,
+            "timestamp": "2026-09-16T19:30:03.330831Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680368014013304,
+            "lng": 25.925673915730556,
+            "timestamp": "2026-09-16T19:30:04.518901Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680364614564695,
+            "lng": 25.92574759637974,
+            "timestamp": "2026-09-16T19:30:05.553105Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68040954916566,
+            "lng": 25.925799318889577,
+            "timestamp": "2026-09-16T19:30:06.578662Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680441719945044,
+            "lng": 25.925793226732118,
+            "timestamp": "2026-09-16T19:30:07.638425Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680398990410122,
+            "lng": 25.92585108215645,
+            "timestamp": "2026-09-16T19:30:09.307441Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680319920037952,
+            "lng": 25.92585578598314,
+            "timestamp": "2026-09-16T19:30:10.247424Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680244539734865,
+            "lng": 25.925922207091393,
+            "timestamp": "2026-09-16T19:30:11.891954Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680198099258252,
+            "lng": 25.925926558318128,
+            "timestamp": "2026-09-16T19:30:12.843837Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68017284099275,
+            "lng": 25.92591725451728,
+            "timestamp": "2026-09-16T19:30:14.035788Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680204283084795,
+            "lng": 25.925905645081265,
+            "timestamp": "2026-09-16T19:30:15.145011Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68021495572374,
+            "lng": 25.925879299341798,
+            "timestamp": "2026-09-16T19:30:16.079795Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680207712004538,
+            "lng": 25.92585029449927,
+            "timestamp": "2026-09-16T19:30:16.872790Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680185569457844,
+            "lng": 25.925831611098882,
+            "timestamp": "2026-09-16T19:30:17.931949Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680144965405212,
+            "lng": 25.925864049594292,
+            "timestamp": "2026-09-16T19:30:19.007946Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680134747911517,
+            "lng": 25.92584823214982,
+            "timestamp": "2026-09-16T19:30:20.209112Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680138403537445,
+            "lng": 25.925769145660777,
+            "timestamp": "2026-09-16T19:30:21.117961Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68019090013153,
+            "lng": 25.925695458890974,
+            "timestamp": "2026-09-16T19:30:22.201894Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680139920364915,
+            "lng": 25.925603744727113,
+            "timestamp": "2026-09-16T19:30:23.362136Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680050615294167,
+            "lng": 25.925702842363727,
+            "timestamp": "2026-09-16T19:30:25.188190Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68003571874904,
+            "lng": 25.925986674760036,
+            "timestamp": "2026-09-16T19:30:27.079538Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68008331482568,
+            "lng": 25.92602138278581,
+            "timestamp": "2026-09-16T19:30:28.273763Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680285290808545,
+            "lng": 25.92603551436108,
+            "timestamp": "2026-09-16T19:30:30.574004Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68037805294136,
+            "lng": 25.925950837323573,
+            "timestamp": "2026-09-16T19:30:32.136715Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680427163337843,
+            "lng": 25.92593655050073,
+            "timestamp": "2026-09-16T19:30:33.495858Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68046813662258,
+            "lng": 25.925993386024537,
+            "timestamp": "2026-09-16T19:30:35.806363Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68047062279794,
+            "lng": 25.92603069996368,
+            "timestamp": "2026-09-16T19:30:39.618095Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.68049653406309,
+            "lng": 25.926064976734096,
+            "timestamp": "2026-09-16T19:30:40.797378Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680536329726298,
+            "lng": 25.9260704905565,
+            "timestamp": "2026-09-16T19:30:42.014024Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680683183342104,
+            "lng": 25.926216531019065,
+            "timestamp": "2026-09-16T19:30:44.159750Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.680928816474133,
+            "lng": 25.92621613806647,
+            "timestamp": "2026-09-16T19:30:46.128208Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681073620869196,
+            "lng": 25.926085781810123,
+            "timestamp": "2026-09-16T19:30:47.770802Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          },
+          {
+            "lat": -24.681187713348496,
+            "lng": 25.926190956523858,
+            "timestamp": "2026-09-16T19:30:50.883103Z",
+            "accuracy_m": null,
+            "capture_method": "satellite"
+          }
+        ],
+        "rooms": [],
+        "corridors": [],
+        "vertical_accesses": [],
+        "volume_sketches": [],
+        "locked": false,
+        "verified": "draft"
+      }
+    ],
+    "photos": []
+  }
+}

@@ -1,0 +1,865 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document id="1417lGdliZXZET-bZQGcxn3cUg4jIzsRV">
+	<name>BAC Maps</name>
+	<gx:CascadingStyle kml:id="__managed_style_030ADA6FBA423D753808_highlight">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6.66667</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_030ADA6FBA423D753808_normal">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4.44444</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_030ADA6FBA423D753808">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_030ADA6FBA423D753808_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_030ADA6FBA423D753808_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark id="06F5BB31C74229BE8858">
+		<name>Main buildin ground floor corridor</name>
+		<LookAt>
+			<longitude>25.9259153456167</longitude>
+			<latitude>-24.68071266315174</latitude>
+			<altitude>989.0419077455333</altitude>
+			<heading>219.6332216544196</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>319.6188633952261</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<LineString>
+			<coordinates>
+				25.92613684736354,-24.68127614979512,0 25.92599940265793,-24.68115961492171,0 25.92598945237647,-24.68101874806498,0 25.92611837708182,-24.68089966483933,0 25.92612055301244,-24.6807396278827,0 25.92603107454622,-24.68065628464981,0 25.92598090599445,-24.68061154619834,0 25.9258593571956,-24.68060765658362,0 25.92581533577769,-24.68056743144421,0 25.92580570357286,-24.68052942527956,0 25.92579927239968,-24.68045355842523,0 25.9258441135213,-24.68041855766334,0 25.92583438072938,-24.68035173218434,0 25.9259368787654,-24.68025039269944,0 25.92593447256726,-24.68019830742875,0 25.92588095041074,-24.68015055917833,0 25.92575981562268,-24.68014244527932,0 25.92569604291372,-24.68020408266593,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="0DA9C988474229C1E3BC">
+		<name>corridor to student&apos;s entrance</name>
+		<LookAt>
+			<longitude>25.92606146007221</longitude>
+			<latitude>-24.6805672066472</latitude>
+			<altitude>987.9490594566442</altitude>
+			<heading>247.243290885982</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>302.7586895825516</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<LineString>
+			<coordinates>
+				25.92604730959924,-24.6800865155165,0 25.92605908251706,-24.68030316327739,0 25.92596993254775,-24.68038899516148,0 25.92595412086211,-24.68044377113248,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="079EA815734229C4788B">
+		<name>Parking lot to Student entrance</name>
+		<LookAt>
+			<longitude>25.92630149858326</longitude>
+			<latitude>-24.68075295866031</latitude>
+			<altitude>984.0882784996669</altitude>
+			<heading>247.2431779144711</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>272.6746059879588</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<LineString>
+			<coordinates>
+				25.9260155734669,-24.68048364818403,0 25.92605350961129,-24.6804789466833,0 25.92621656742308,-24.68061903844212,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="0A683D04BC4229D15236">
+		<name>Along the road to parking lot</name>
+		<LookAt>
+			<longitude>25.92644201430534</longitude>
+			<latitude>-24.68055516924863</latitude>
+			<altitude>983.8423636201614</altitude>
+			<heading>248.1186974627053</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>374.0385223912017</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<LineString>
+			<coordinates>
+				25.92609656024274,-24.67987969618253,0 25.92615147122237,-24.67990110569124,0 25.92634392040448,-24.67990200213449,0 25.92640337895436,-24.67989852473072,0 25.92659205351798,-24.68003206244925,0 25.92666466633845,-24.68046997201794,0 25.92656714053905,-24.68063175351853,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="032B42D9AA4229D248D4">
+		<name>Along road 2 to parking lot</name>
+		<LookAt>
+			<longitude>25.92634654838795</longitude>
+			<latitude>-24.68043629262413</latitude>
+			<altitude>985.2768435034045</altitude>
+			<heading>248.1187355944591</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>372.6040375892262</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<LineString>
+			<coordinates>
+				25.92611224308125,-24.6799776789928,0 25.92636803443029,-24.68011635983206,0 25.92642881396927,-24.68040856192623,0 25.92634729473385,-24.68049789519057,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="05F5E5D4994229D6F7F9">
+		<name>Staff entrance</name>
+		<LookAt>
+			<longitude>25.92605844009962</longitude>
+			<latitude>-24.68033593624187</latitude>
+			<altitude>987.7316321922391</altitude>
+			<heading>248.118843860327</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>370.149228508235</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<LineString>
+			<coordinates>
+				25.92601494858663,-24.67995448033211,0 25.92563495995311,-24.67995127881927,0 25.92563366107843,-24.68015079259092,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="0A0DB1099A4238896E54">
+		<name>Staff entrance 2</name>
+		<LookAt>
+			<longitude>25.92674094855102</longitude>
+			<latitude>-24.68068747285126</latitude>
+			<altitude>983.4708206392413</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30.00000002177264</gx:fovy>
+			<range>433.0571270073416</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<LineString>
+			<coordinates>
+				25.92603165746229,-24.67988438984816,0 25.92596819124561,-24.67990281187376,0 25.92556358152037,-24.67990002736761,0 25.92555719454911,-24.68014615930329,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="0B3BCE270742388B68D0">
+		<name>Along road 2 to parking lot</name>
+		<LookAt>
+			<longitude>25.92692552379651</longitude>
+			<latitude>-24.6802812873736</latitude>
+			<altitude>982.0827650744386</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30.00000002177264</gx:fovy>
+			<range>474.1231511977821</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<LineString>
+			<coordinates>
+				25.92602829213842,-24.67995952345756,0 25.9260546958473,-24.68001390125517,0 25.92612221658835,-24.6800640448477,0 25.92616152937999,-24.68010556450355,0 25.92621399620166,-24.68011422881361,0 25.92626112093905,-24.68010755585924,0 25.92632494446292,-24.68014213891561,0 25.92638095222373,-24.68039848199241,0 25.92630711353319,-24.68046786886754,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="0417CBF0A542388E514B">
+		<name>Along road to parking lot</name>
+		<LookAt>
+			<longitude>25.92659793217564</longitude>
+			<latitude>-24.68056879376848</latitude>
+			<altitude>983.4463211683691</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30.00000002177264</gx:fovy>
+			<range>361.5779668441974</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<LineString>
+			<coordinates>
+				25.92612323535354,-24.67994819409587,0 25.92636578137371,-24.6799339687202,0 25.92650860893113,-24.68003611378121,0 25.92657526403593,-24.68047112091372,0 25.92650637355635,-24.68058980306431,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="0D04015E4F42388FAE28">
+		<name>Parking lot</name>
+		<LookAt>
+			<longitude>25.92750919774568</longitude>
+			<latitude>-24.68050932950515</latitude>
+			<altitude>981.6544249038923</altitude>
+			<heading>359.9999999999998</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30.00000002177264</gx:fovy>
+			<range>540.8287920623843</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						25.92629973060636,-24.6804746720595,0 25.92625290081885,-24.68051427669377,0 25.92622010444415,-24.68060837972676,0 25.92624890907494,-24.6806382167457,0 25.92626902691655,-24.68075699020978,0 25.92628882489203,-24.68081872472762,0 25.9264863943669,-24.68096607515669,0 25.92672979243437,-24.68076858157848,0 25.92672736433786,-24.68076858171348,0 25.92629973060636,-24.6804746720595,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0E38C1B15842389061E4">
+		<name>Parking lot 2 &amp; recreational area</name>
+		<LookAt>
+			<longitude>25.92751002792704</longitude>
+			<latitude>-24.68041775115142</latitude>
+			<altitude>981.509278832036</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30.00000002177264</gx:fovy>
+			<range>609.1697516274145</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						25.92665988897996,-24.68006198855481,0 25.92670912198018,-24.6804803893341,0 25.92727268773288,-24.68086027103181,0 25.92748279444825,-24.68061962184566,0 25.92665988897996,-24.68006198855481,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="02248B2363423891302E">
+		<name>Corridor to student entrance</name>
+		<LookAt>
+			<longitude>25.92715595430436</longitude>
+			<latitude>-24.6803282265434</latitude>
+			<altitude>982.1281130067176</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30.00000002177264</gx:fovy>
+			<range>608.5509560797074</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<LineString>
+			<coordinates>
+				25.92622924508662,-24.68070463812051,0 25.92606224043876,-24.68056418135469,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="091FBC34154238F1E9FC">
+		<name>School Clinic</name>
+		<LookAt>
+			<longitude>25.9271886890171</longitude>
+			<latitude>-24.68087376487996</latitude>
+			<altitude>983.3382117544245</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>179.4926950563058</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<LineString>
+			<coordinates>
+				25.92683986609623,-24.68098453034832,0 25.92684161107517,-24.68096125304512,0 25.92692641471335,-24.68096129108939,0 25.92692603617301,-24.68101730567026,0 25.92692629658807,-24.68104480637978,0 25.92688269419342,-24.68104559732706,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="0D7819DEF24238F2FE11">
+		<name>Chilling area</name>
+		<LookAt>
+			<longitude>25.92598852533366</longitude>
+			<latitude>-24.68058683072168</latitude>
+			<altitude>988.5797347547674</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>196.3456954019785</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						25.92569418588977,-24.68065985786396,0 25.92568471478111,-24.68072248732334,0 25.92571074492483,-24.6808212061786,0 25.92575653014472,-24.68084795904017,0 25.92582343551667,-24.68083178123643,0 25.92581830665495,-24.68076332395428,0 25.9257942881799,-24.68070923730432,0 25.92576609255361,-24.68065894606161,0 25.92569418588977,-24.68065985786396,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="02B64389DF4238F3854E">
+		<name>Path to chilling area 1</name>
+		<LookAt>
+			<longitude>25.92598852533366</longitude>
+			<latitude>-24.68058683070056</latitude>
+			<altitude>988.5797347547674</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>196.3456954019784</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<LineString>
+			<coordinates>
+				25.92581593865755,-24.68056910732003,0 25.92574627923896,-24.68065704008551,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="0DB7FDAE134238F400C0">
+		<name>Path to chilling area</name>
+		<LookAt>
+			<longitude>25.92598852533366</longitude>
+			<latitude>-24.68058683067942</latitude>
+			<altitude>988.5797347533527</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>196.3456954019785</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<LineString>
+			<coordinates>
+				25.92583711520567,-24.68058506174218,0 25.92577131393598,-24.68066653722889,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="03137791EF4238F4F840">
+		<name>Path to chilling area 2</name>
+		<LookAt>
+			<longitude>25.92598226263962</longitude>
+			<latitude>-24.6805507906699</latitude>
+			<altitude>988.5197478583718</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>196.4056790291215</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<LineString>
+			<coordinates>
+				25.92569314433964,-24.68065985652099,0 25.9256783107819,-24.68059349943669,0 25.92569774219384,-24.68052794079558,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="05C1D0B3D14238F6BA04">
+		<name>Path to chiling area 2</name>
+		<LookAt>
+			<longitude>25.92598226263962</longitude>
+			<latitude>-24.68055079071217</latitude>
+			<altitude>988.5197478583718</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>196.4056790291215</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<LineString>
+			<coordinates>
+				25.92572111744182,-24.68052380509911,0 25.92569918323902,-24.68059350210002,0 25.92571397719886,-24.68065892514558,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="0CBD5352804238F7AB8E">
+		<name>Staff chilling area</name>
+		<LookAt>
+			<longitude>25.92578880539092</longitude>
+			<latitude>-24.68007935769457</latitude>
+			<altitude>986.2168699429113</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>284.8834296283167</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						25.92561314217161,-24.68025686248157,0 25.9255711183095,-24.68030875270377,0 25.9255971776848,-24.68034945332606,0 25.92566065410722,-24.68036978469702,0 25.92570422925881,-24.68032088707634,0 25.92568749459293,-24.68027583599664,0 25.92561314217161,-24.68025686248157,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0292D51DC54238F893BC">
+		<name>Path to block A &amp; B</name>
+		<LookAt>
+			<longitude>25.92625132594104</longitude>
+			<latitude>-24.68113402926813</latitude>
+			<altitude>986.0979374770503</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>173.9234771829433</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<LineString>
+			<coordinates>
+				25.9260913383041,-24.68123906674483,0 25.92597260707577,-24.68139999025548,0 25.92592211048974,-24.68142893136699,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="0A938D92F94238F93031">
+		<name>Path to block A &amp; B</name>
+		<LookAt>
+			<longitude>25.92625132594104</longitude>
+			<latitude>-24.68113402924699</latitude>
+			<altitude>986.0979374770503</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>173.9234771829433</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<LineString>
+			<coordinates>
+				25.92610782700337,-24.68125432400149,0 25.92598631384089,-24.68141552936114,0 25.92595917962224,-24.6814300176109,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="02B966CB6B4238FAE7E0">
+		<name>Mitron&apos;s yard</name>
+		<LookAt>
+			<longitude>25.9269013172245</longitude>
+			<latitude>-24.68086855092163</latitude>
+			<altitude>984.180673897347</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>225.6434325830924</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						25.92645268382365,-24.68095816752691,0 25.9264178420305,-24.68098955063166,0 25.92641583972424,-24.68117679430977,0 25.92651671392667,-24.68118426908589,0 25.92662830771456,-24.68111009155451,0 25.92663245182717,-24.6809623458266,0 25.92651747150846,-24.68094727194941,0 25.92645268382365,-24.68095816752691,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0807118EE542391CA8B1">
+		<name>Block B</name>
+		<LookAt>
+			<longitude>25.92610786935629</longitude>
+			<latitude>-24.68139764345858</latitude>
+			<altitude>985.3023363149184</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>138.2828886282369</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						25.92593920543266,-24.68150940594674,0 25.92592069190587,-24.68146862059935,0 25.92590379102298,-24.68147462873682,0 25.9260083521412,-24.68165820311241,0 25.92601647016532,-24.68165214880294,0 25.92602449346696,-24.6816624641844,0 25.92609159958922,-24.68162342597946,0 25.92601250382154,-24.68147354905659,0 25.92593920543266,-24.68150940594674,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="05B66CA50542391E2BB8">
+		<name>Block A</name>
+		<LookAt>
+			<longitude>25.92622284671996</longitude>
+			<latitude>-24.6815556929634</latitude>
+			<altitude>985.0398046584439</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>138.5454212961849</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						25.92590149512714,-24.68152495645262,0 25.92583240062203,-24.68155769685081,0 25.92591689596491,-24.68170708525419,0 25.92598983225937,-24.68167562661344,0 25.92598550707802,-24.68166954874371,0 25.92599580375123,-24.68166420157322,0 25.92589646959147,-24.68147469080508,0 25.92588402807548,-24.68147939555865,0 25.92590149512714,-24.68152495645262,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0CFA47465442391EBB61">
+		<name>Ladies Toilet</name>
+		<LookAt>
+			<longitude>25.92622284669678</longitude>
+			<latitude>-24.68155569298453</latitude>
+			<altitude>985.0398046584439</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>138.5454212961849</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						25.92594000786518,-24.68150817458768,0 25.92596759039672,-24.68149536236176,0 25.92595648200256,-24.68146786457921,0 25.92592747235891,-24.68148006158916,0 25.92594000786518,-24.68150817458768,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="08634E38E742391F2E39">
+		<name>Gents Toilet</name>
+		<LookAt>
+			<longitude>25.92622284667357</longitude>
+			<latitude>-24.68155569300567</latitude>
+			<altitude>985.0398046584439</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>138.5454212961849</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						25.92588331525024,-24.68148073946817,0 25.92585027843462,-24.68149547942715,0 25.92587584620112,-24.68153765640623,0 25.92590292335156,-24.68152161105969,0 25.92588331525024,-24.68148073946817,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0494F2711842392074BC">
+		<name>Tuckshop</name>
+		<LookAt>
+			<longitude>25.92734249974819</longitude>
+			<latitude>-24.68068780535585</latitude>
+			<altitude>982.4530875306722</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>218.3364857865308</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						25.92683508948603,-24.68087264739519,0 25.92689056071745,-24.68092201349433,0 25.92693228309944,-24.68087890078005,0 25.92687774709291,-24.68083277208015,0 25.92683508948603,-24.68087264739519,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0585BB7FC442392278CC">
+		<name>School ATM</name>
+		<LookAt>
+			<longitude>25.92617025463759</longitude>
+			<latitude>-24.67988469324229</latitude>
+			<altitude>984.2515511843375</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>144.2000949783869</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						25.92596973098687,-24.67984908949931,0 25.92596813805748,-24.67989027954631,0 25.92599963791378,-24.67988469314862,0 25.92596973098687,-24.67984908949931,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="025DA302A54239233430">
+		<name>Staff parking 1</name>
+		<LookAt>
+			<longitude>25.92596438860693</longitude>
+			<latitude>-24.67986257665225</latitude>
+			<altitude>984.4423764708347</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>144.0092622140583</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						25.92594594863818,-24.67990306928176,0 25.92594672271844,-24.67985699327618,0 25.92556251765967,-24.67985353400477,0 25.92556174029593,-24.67990090518339,0 25.92594594863818,-24.67990306928176,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="00DFA5AB0E4239241880">
+		<name>Staff parking 2</name>
+		<LookAt>
+			<longitude>25.92601359550009</longitude>
+			<latitude>-24.67997698283234</latitude>
+			<altitude>984.502383964511</altitude>
+			<heading>2.9373433720137e-10</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>162.0399859159988</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						25.92564970394952,-24.67995106431253,0 25.92564753354592,-24.68000365499642,0 25.92596105617394,-24.68000280941217,0 25.92596263294623,-24.67995500647981,0 25.92564970394952,-24.67995106431253,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="072656A538423924DD69">
+		<name>Staff parking 3</name>
+		<LookAt>
+			<longitude>25.92653316337325</longitude>
+			<latitude>-24.67989487797873</latitude>
+			<altitude>982.6520132198025</altitude>
+			<heading>8.894141717426175e-10</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>163.8903579720863</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						25.92614661082414,-24.67994291730243,0 25.92614314370103,-24.67999095730436,0 25.92633320702485,-24.67999319549187,0 25.92633220565575,-24.67994446341904,0 25.92614661082414,-24.67994291730243,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0E114AF694423925709C">
+		<name>Staff parking 4</name>
+		<LookAt>
+			<longitude>25.92653316337325</longitude>
+			<latitude>-24.679894878021</latitude>
+			<altitude>982.6520132198025</altitude>
+			<heading>8.894141717426175e-10</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>163.8903579720863</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						25.92614966723265,-24.67985712053663,0 25.92614945110715,-24.67989959982324,0 25.92628039616415,-24.67990195683694,0 25.92628039629498,-24.6798586956121,0 25.92614966723265,-24.67985712053663,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0155BEA7E3423926DACF">
+		<name>Staff parking 5</name>
+		<LookAt>
+			<longitude>25.9264760083482</longitude>
+			<latitude>-24.68068217222851</latitude>
+			<altitude>983.2682055923567</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>163.2741699043072</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						25.92635530084591,-24.68074529772283,0 25.92632510505562,-24.68077673634965,0 25.92648727202365,-24.68091914576608,0 25.92652024551525,-24.68088472879981,0 25.92635530084591,-24.68074529772283,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="047147EA424239286344">
+		<name>Recreational area</name>
+		<LookAt>
+			<longitude>25.92675554168674</longitude>
+			<latitude>-24.68053673198958</latitude>
+			<altitude>982.5510305922919</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>190.8487800498187</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						25.92676874707408,-24.68058750172008,0 25.92672205823151,-24.68063260937039,0 25.92681533862126,-24.68070341892245,0 25.9268600926792,-24.68065847977783,0 25.92676874707408,-24.68058750172008,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="06ADF1171442396F2466">
+		<name>Block K</name>
+		<LookAt>
+			<longitude>25.9262097963221</longitude>
+			<latitude>-24.68150636209074</latitude>
+			<altitude>985.3315992068536</altitude>
+			<heading>178.6117904519547</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>281.852518137639</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						25.92657919308773,-24.68147086920228,0 25.92639071800064,-24.68146959448177,0 25.92638756015927,-24.68156403464955,0 25.92657698802254,-24.68156417605763,0 25.92657919308773,-24.68147086920228,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0DD5400B21423D76BF63">
+		<name>Block K 2</name>
+		<LookAt>
+			<longitude>25.92604036320498</longitude>
+			<latitude>-24.68143774160591</latitude>
+			<altitude>985.0162233764319</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30.00000000221065</gx:fovy>
+			<range>204.0877320937216</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						25.92639127509774,-24.68146556508715,0 25.92657714152175,-24.68146824270444,0 25.9265739346276,-24.68139356204171,0 25.92639022659588,-24.68138863830541,0 25.92639127509774,-24.68146556508715,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0967A8A2FD423D77D948">
+		<name>Block *</name>
+		<LookAt>
+			<longitude>25.92630644057727</longitude>
+			<latitude>-24.68145484811023</latitude>
+			<altitude>985.3469323969399</altitude>
+			<heading>359.9999999999493</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30.00000000221065</gx:fovy>
+			<range>163.0271082839317</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						25.926064880363,-24.681402409391,0 25.9262462052654,-24.68140426358331,0 25.92624542619597,-24.68133483448083,0 25.92606503264825,-24.68133043410251,0 25.926064880363,-24.681402409391,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="083005ECEC423D7F50BB">
+		<name>Lecturer&apos;s offices</name>
+		<LookAt>
+			<longitude>25.92630644062368</longitude>
+			<latitude>-24.68145484802834</latitude>
+			<altitude>985.3469512626909</altitude>
+			<heading>359.9999999999493</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30.00000000221065</gx:fovy>
+			<range>163.0270851063324</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_030ADA6FBA423D753808</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						25.92611004315183,-24.68153993409597,0 25.92630312938779,-24.68154435679373,0 25.92630478754718,-24.68146235818892,0 25.92611116124533,-24.6814548478763,0 25.92611004315183,-24.68153993409597,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</Document>
+</kml>

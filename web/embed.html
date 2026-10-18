@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Campus Navigator map</title>
+<!--
+  Full screen map for hosting inside an app (WebView) or another site (iframe).
+  No controls of its own: the host drives it and listens for events.
+  The map is the two detailed campus drawings (interiors.js and renders/ must sit next to this page).
+
+  URL options:  embed.html?floor=0&rotation=30&tooltip=0&gestures=0
+                  floor=all|0|1 (0 shows the ground-floor cutaway drawing), rotation (degrees clockwise,
+                  the drawings turned flat on the screen), tooltip, gestures
+                embed.html?data=https://example.com/map_data.json   (load map data from a URL;
+                  the drawings still come from interiors.js)
+                theme, labels, shadows and cutaway belonged to the old vector map and are ignored.
+
+  Host -> map   call methods on window.campusMap, e.g. from Kotlin:
+                  webView.evaluateJavascript("campusMap.focus('Block D')", null)
+                or post a message: { "target": "campus-map", "cmd": "focus", "args": ["Block D"] }
+
+  Map -> host   every event is sent as a JSON string:
+                  { "source": "campus-map", "type": "select" | "ready" | "viewchange", "payload": {...} }
+                through whichever channel exists: Android addJavascriptInterface named
+                AndroidBridge (method onMapEvent), Flutter JavaScriptChannel named
+                CampusMapChannel, React Native WebView, iOS WKWebView handler named
+                campusMap, or window.parent.postMessage for an iframe.
+-->
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #e9e6dc; }   /* the drawings' own background */
+  #map { position: fixed; inset: 0; }
+  .cm-error { font: 14px system-ui, sans-serif; padding: 16px; color: #b00020; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script src="campus-map.js?v=rotate-1"></script>
+<script src="map_data.js?v=rotate-1"></script>
+<script src="interiors.js?v=rotate-1"></script>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var opts = {};
+  if (q.has("floor")) opts.floor = q.get("floor") === "all" ? "all" : +q.get("floor");
+  if (q.has("rotation")) opts.rotation = +q.get("rotation") || 0;
+  ["tooltip", "gestures"].forEach(function (k) {
+    if (q.has(k)) opts[k] = q.get(k) !== "0" && q.get(k) !== "false";
+  });
+
+  /* send an event to whatever is hosting this page */
+  function send(type, payload) {
+    var msg = JSON.stringify({ source: "campus-map", type: type, payload: payload });
+    try { if (window.AndroidBridge && window.AndroidBridge.onMapEvent) window.AndroidBridge.onMapEvent(msg); } catch (e) {}
+    try { if (window.CampusMapChannel) window.CampusMapChannel.postMessage(msg); } catch (e) {}
+    try { if (window.ReactNativeWebView) window.ReactNativeWebView.postMessage(msg); } catch (e) {}
+    try { if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.campusMap) window.webkit.messageHandlers.campusMap.postMessage(msg); } catch (e) {}
+    try { if (window.parent !== window) window.parent.postMessage(msg, "*"); } catch (e) {}
+  }
+
+  function fail(message) {
+    document.getElementById("map").innerHTML = '<p class="cm-error"></p>';
+    document.querySelector(".cm-error").textContent = message;
+    send("error", { message: message });
+  }
+
+  function start(data) {
+    if (!window.CAMPUS_INTERIORS || !window.CAMPUS_INTERIORS.renders) {
+      fail("The campus drawings did not load: interiors.js and the renders folder must be next to embed.html.");
+      return;
+    }
+    opts.data = Object.assign({}, data, { interiors: window.CAMPUS_INTERIORS });
+    var map = CampusMap.mount(document.getElementById("map"), opts);
+    window.campusMap = map;
+    map.on("ready", function (p) { send("ready", { features: map.features() }); });
+    map.on("select", function (f) { send("select", f); });
+    var t = 0;
+    map.on("viewchange", function (v) { clearTimeout(t); t = setTimeout(function () { send("viewchange", v); }, 150); });
+
+    /* commands posted from the host */
+    function onMessage(e) {
+      var m = e.data;
+      if (typeof m === "string") { try { m = JSON.parse(m); } catch (_) { return; } }
+      if (!m || m.target !== "campus-map" || typeof map[m.cmd] !== "function") return;
+      var result = map[m.cmd].apply(map, m.args || []);
+      if (m.id != null) send("result", { id: m.id, value: result === map ? null : result });
+    }
+    window.addEventListener("message", onMessage);
+    document.addEventListener("message", onMessage);       // React Native on Android
+  }
+
+  if (q.has("data")) {
+    CampusMap.load(q.get("data")).then(start).catch(function (err) { fail("Could not load map data: " + err.message); });
+  } else {
+    start(window.CAMPUS_MAP_DATA);
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Campus Navigator</title>
+<style>
+  /* Layout: compact header and control bar over a map that fills the rest of the screen. */
+  :root {
+    --bg: #eceadf; --panel: #fbfaf7; --ink: #1b1e23; --muted: #6f6c5f;
+    --line: #d5d1c2; --accent: #b3541e; --route: #c2185b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1a1c20; --panel: #23262b; --ink: #e8e6e0; --muted: #a29e93;
+      --line: #33373d; --accent: #e08b52; --route: #ff6fa8; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1a1c20; --panel: #23262b; --ink: #e8e6e0; --muted: #a29e93;
+    --line: #33373d; --accent: #e08b52; --route: #ff6fa8; color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0; display: flex; flex-direction: column;
+    font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--ink); background: var(--bg);
+  }
+  header { padding: 12px 16px 10px; background: var(--panel); border-bottom: 1px solid var(--line); }
+  h1 { font-size: 15px; margin: 0; text-wrap: balance; }
+  header p { margin: 2px 0 0; color: var(--muted); font-size: 12px; }
+
+  .bar {
+    display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center;
+    padding: 8px 16px; background: var(--panel); border-bottom: 1px solid var(--line); font-size: 12.5px;
+  }
+  .bar label { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .bar select, .bar button {
+    font: inherit; color: var(--ink); background: var(--panel);
+    border: 1px solid var(--line); border-radius: 6px; padding: 3px 8px;
+  }
+  .bar button { cursor: pointer; }
+  .bar button:hover { border-color: var(--accent); }
+  .bar button:focus-visible, .bar select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .sep { width: 1px; height: 18px; background: var(--line); }
+
+  #map { flex: 1; min-height: 320px; position: relative; }
+
+  .status {
+    display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center;
+    padding: 7px 16px calc(7px + env(safe-area-inset-bottom, 0px));
+    background: var(--panel); border-top: 1px solid var(--line); font-size: 12px; color: var(--muted);
+  }
+  .status b { color: var(--ink); font-weight: 600; }
+  .status .route { color: var(--route); font-weight: 600; }
+  .hint { margin-left: auto; }
+  @media (max-width: 640px) {
+    .sep, .hint { display: none; }
+    .bar { gap: 6px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Campus Navigator</h1>
+  <p>Botswana Accountancy College, Gaborone · detailed campus drawings</p>
+</header>
+
+<div class="bar" role="toolbar" aria-label="Map controls">
+  <label>Show
+    <select id="floor">
+      <option value="all">all floors</option>
+      <option value="0">ground floor (cutaway)</option>
+      <option value="1">first floor</option>
+    </select>
+  </label>
+  <span class="sep"></span>
+  <label>Find
+    <select id="find"><option value="">a building or area…</option></select>
+  </label>
+  <button id="demoRoute" type="button">Example route</button>
+  <button id="clearRoute" type="button" hidden>Clear route</button>
+  <button id="fit" type="button">Whole campus</button>
+</div>
+
+<div id="map"></div>
+
+<div class="status" aria-live="polite">
+  <span id="selection">Tap a building for details</span>
+  <span id="routeInfo" class="route" hidden></span>
+  <span class="hint">Drag to move · scroll or pinch to zoom · double-click for the whole campus</span>
+</div>
+
+<script src="campus-map.js?v=rotate-1"></script>
+<script src="map_data.js?v=rotate-1"></script>
+<script src="interiors.js?v=rotate-1"></script>
+<script>
+  /* Everything below uses only the public CampusMap API, so it is also
+     the reference for how the website and app should drive the map.
+     The map is the two campus drawings, which come with interiors.js. */
+  const $ = id => document.getElementById(id);
+  if (!window.CAMPUS_INTERIORS || !window.CAMPUS_INTERIORS.renders) {
+    $("map").innerHTML = '<p style="padding:24px">The campus drawings did not load. Check that <code>interiors.js</code> and the <code>renders</code> folder are next to this page.</p>';
+    throw new Error("Campus Navigator: interiors.js with its renders is required");
+  }
+  const map = CampusMap.mount($("map"), { data: Object.assign({}, window.CAMPUS_MAP_DATA, { interiors: window.CAMPUS_INTERIORS }) });
+
+  /* controls -> map: the floor picks the drawing (ground floor = the cutaway) */
+  $("floor").addEventListener("change", e => {
+    const v = e.target.value;
+    map.set({ floor: v === "all" ? "all" : +v });
+    fillFind();                                   // rooms on the list follow the floor in view
+  });
+  $("fit").addEventListener("click", () => map.fit());
+
+  /* tapping a building */
+  map.on("select", f => {
+    $("selection").innerHTML = f
+      ? `<b>${escapeHtml(f.name)}</b> · ${escapeHtml(describe(f))}`
+      : "Tap a building for details";
+  });
+  function describe(f) {
+    if (f.kind === "building") return `${f.floors} storey${f.floors > 1 ? "s" : ""}, ${f.footprint_m2} m²`;
+    if (f.kind === "raised_area") return `raised area, reached from floor ${f.level}`;
+    if (f.kind === "room") return f.info;
+    return `${f.kind.replace("_", " ")}, ${f.area_m2} m²`;
+  }
+  function escapeHtml(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+
+  /* search list: buildings, areas and the rooms of the floor in view */
+  function fillFind() {
+    const sel = $("find"), keep = sel.value;
+    while (sel.options.length > 1) sel.remove(1);
+    const list = map.features().sort((a, b) => a.name.localeCompare(b.name));
+    for (const f of list) {
+      const o = document.createElement("option");
+      o.value = f.name; o.textContent = f.kind === "room" ? `${f.name} (${f.floor.toLowerCase()})` : f.name;
+      sel.appendChild(o);
+    }
+    sel.value = list.some(f => f.name === keep) ? keep : "";
+  }
+  map.on("ready", fillFind);
+  $("find").addEventListener("change", e => { if (e.target.value) map.focus(e.target.value); });
+
+  /* An example of what A* output will look like on the map: from the parking
+     lot into the student entrance, along the ground floor corridor, up the
+     stairs, and across the bridge to the chilling area. Built from the map's
+     own route lines; this is NOT pathfinding. */
+  function exampleRoute() {
+    const d = map.data();
+    const path = name => d.paths.find(p => p.name === name);
+    const near = (pts, q) => pts.reduce((best, p, i) =>
+      Math.hypot(p[0] - q[0], p[1] - q[1]) < Math.hypot(pts[best][0] - q[0], pts[best][1] - q[1]) ? i : best, 0);
+    const slice = (pts, a, b) => a <= b ? pts.slice(a, b + 1) : pts.slice(b, a + 1).reverse();
+    const at = (pts, level) => pts.map(p => ({ x: p[0], y: p[1], level }));
+
+    const entry = path("Parking lot to Student entrance").points_m.slice().reverse();
+    const ground = path("Main buildin — ground floor corridor").points_m;
+    const upper = path("Main buildin — first floor corridor").points_m;
+    const stair = d.nodes[0].at;
+    const bridge = path("Bridge to chilling area").points_m;
+    const rock = d.elevated[0].points_m;
+    const rockMid = rock.reduce((s, p) => [s[0] + p[0] / rock.length, s[1] + p[1] / rock.length], [0, 0]);
+    const bridgeStart = near(bridge, stair) === 0 ? bridge : bridge.slice().reverse();
+
+    return [
+      ...at(entry, 0),
+      ...at(slice(ground, near(ground, entry[entry.length - 1]), near(ground, stair)), 0),
+      { x: stair[0], y: stair[1], level: 0 },
+      { x: stair[0], y: stair[1], level: 1 },
+      ...at(slice(upper, near(upper, stair), near(upper, bridgeStart[0])), 1),
+      ...at(bridgeStart, 1),
+      { x: rockMid[0], y: rockMid[1], level: 1 }
+    ];
+  }
+  $("demoRoute").addEventListener("click", () => {
+    const metres = map.drawRoute(exampleRoute());
+    $("routeInfo").hidden = false;
+    $("routeInfo").textContent = `Example route: parking lot to chilling area, about ${Math.round(metres)} m`;
+    $("clearRoute").hidden = false; $("demoRoute").hidden = true;
+  });
+  $("clearRoute").addEventListener("click", () => {
+    map.clearRoute();
+    $("routeInfo").hidden = true;
+    $("clearRoute").hidden = true; $("demoRoute").hidden = false;
+  });
+</script>
+</body>
+</html>
