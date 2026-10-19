@@ -38,6 +38,31 @@ EDGE_PAIRS = [
 # so a route follows it when it is about as short as any other way.
 WALK_WIDTH_M = 2.0
 
+# Walk files that hold more than walks. A placemark with several unnamed lines (Google Earth
+# MultiGeometry) is read one line at a time and numbered "name", "name (2)", "name (3)" in file order.
+#   boundary: lines that together trace the campus fence. They are joined end to end into one
+#             outline (the build stops if they do not close). Untraced ground only counts as
+#             walkable inside it. These lines are never used as walks.
+#   names:    readable names for unnamed lines, taken from where each one starts and ends.
+#             A walk that repeats an earlier walk point for point is skipped automatically.
+WALK_FILES = {
+    "paths.kmz": {
+        # five straight lines (drawn with altitude, unlike the walks) joining into one loop around every building
+        "boundary": ["paths (2)", "paths (3)", "paths (4)", "paths (5)", "paths (6)"],
+        "names": {
+            "paths":      "Main Gate to Block A, through the main building",
+            "paths (7)":  "Main Gate to the main entrance stairs",
+            "paths (8)":  "Fence 25 m east of the Main Gate to the main entrance stairs",
+            "paths (9)":  "Main Gate to the staff entrance road",
+            "paths (10)": "Main Gate to the School ATM",
+            "paths (11)": "Main Gate to the parking lot, along the main road",
+            "paths (12)": "Parking lot to the student entrance",
+            "paths (13)": "Main Gate to the student entrance",
+            "paths (14)": "Parking lot to the Main Gate, along the inner road",
+        },
+    },
+}
+
 # Buildings traced in Google Earth rather than in the original footprint file.
 # A traced line is closed into an outline automatically.
 #   subtract: footprints this one must not overlap (the overlap is cut away)

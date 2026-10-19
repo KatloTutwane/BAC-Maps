@@ -15,7 +15,8 @@ import math
 import sys
 from pathlib import Path
 
-from shapely.geometry import Polygon
+from shapely.geometry import LineString, Polygon
+from shapely.validation import make_valid
 
 sys.path.insert(0, str(Path(__file__).parent))
 import config
@@ -24,6 +25,45 @@ from geometry import indoor_centreline, pitched_roof, point_along, road_from_edg
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw"
+
+
+def campus_boundary(parts, buildings, notes, gap_m=3.0):
+    """Join the fence lines end to end into one closed outline, reversing any drawn the other way."""
+    files = sorted({f for f, _, _ in parts})
+    left = [pts for _, _, pts in parts]
+    ring = list(left.pop(0))
+    while left:
+        end = ring[-1]
+        k, flip, d = min(((i, r, math.dist(end, p[-1] if r else p[0])) for i, p in enumerate(left) for r in (False, True)),
+                         key=lambda t: t[2])
+        if d > gap_m:
+            sys.exit(f"campus boundary: the fence lines leave a {d:.1f} m gap at ({end[0]}, {end[1]}); "
+                     f"check config.WALK_FILES")
+        nxt = left.pop(k)
+        ring += list(reversed(nxt)) if flip else list(nxt)
+    if math.dist(ring[0], ring[-1]) > gap_m:
+        sys.exit(f"campus boundary does not close: its ends are {math.dist(ring[0], ring[-1]):.1f} m apart")
+    out = [ring[0]]
+    for p in ring[1:]:
+        if math.dist(out[-1], p) > 0.5:
+            out.append(p)
+    if math.dist(out[0], out[-1]) <= 0.5:
+        out.pop()
+    P = Polygon(out)
+    if not P.is_valid:                                    # hand-drawn lines overshooting each other at a corner
+        pieces = [g for g in getattr(make_valid(P), "geoms", [make_valid(P)]) if g.geom_type == "Polygon"]
+        main_piece = max(pieces, key=lambda g: g.area)
+        lost = sum(g.area for g in pieces) - main_piece.area
+        if lost > 0.01 * main_piece.area:
+            sys.exit("campus boundary crosses itself; check the fence lines in " + ", ".join(files))
+        P = main_piece.simplify(0.05)
+        out = [[round(x, 2), round(y, 2)] for x, y in list(P.exterior.coords)[:-1]]
+        notes.append(f"campus boundary: fence lines overlap at a corner, {lost:.1f} m2 trimmed")
+    for b in buildings:
+        outside = Polygon(b["points_m"]).difference(P).area
+        if outside > 0.05:
+            notes.append(f"{b['name']}: {outside:.1f} m2 lies outside the campus boundary")
+    return {"name": "Campus boundary", "points_m": out, "area_m2": round(P.area), "source": ", ".join(files)}
 
 
 def main():
@@ -96,14 +136,30 @@ def main():
     # -- 4b. verified walks: routes walked or measured for real (data/raw/walks/*.kml|kmz) --
     # Each line becomes a footpath the router slightly prefers, so routes follow the way
     # people actually walk. Kept apart from bac_maps.kml so a new walk is just a new file.
+    walks, fence_parts = [], []
     for f in sorted((RAW / "walks").glob("*.km[lz]")) if (RAW / "walks").is_dir() else []:
+        spec = config.WALK_FILES.get(f.name, {})
+        found = set()
         for name, kind, coords in load_kml(f):
             if kind != "line":
                 continue
+            found.add(name)
             pts = [proj.to_m(*c) for c in coords]
+            if name in spec.get("boundary", []):
+                fence_parts.append((f.name, name, pts))
+                continue
+            title = spec.get("names", {}).get(name, name)
+            twin = next((w for w in walks if LineString(w["points_m"]).hausdorff_distance(LineString(pts)) < 1.0), None)
+            if twin:
+                notes.append(f"{f.name}: '{name}' skipped, it repeats the walk '{twin['name']}'")
+                continue
             L = sum(math.dist(pts[i], pts[i + 1]) for i in range(len(pts) - 1))
-            paths.append({"name": name, "points_m": pts, "length_m": round(L, 1), "width_m": config.WALK_WIDTH_M,
+            walks.append({"name": title, "points_m": pts, "length_m": round(L, 1), "width_m": config.WALK_WIDTH_M,
                           "level": 0, "indoor": False, "verified": True, "source": f.name})
+        for name in (set(spec.get("boundary", [])) | set(spec.get("names", {}))) - found:
+            print(f"  ! {f.name} has no line named '{name}' (config.WALK_FILES)")
+    paths += walks
+    boundary = campus_boundary(fence_parts, buildings, notes) if fence_parts else None
 
     # -- 5. indoor corridor, computed from the footprint -------------------
     ind = config.INDOOR
@@ -134,6 +190,8 @@ def main():
     # -- 8. write ----------------------------------------------------------
     data = {"buildings": buildings, "paths": paths, "areas": areas, "elevated": elevated,
             "roads": roads, "nodes": nodes}
+    if boundary:
+        data["boundary"] = boundary
     blob = json.dumps(data, separators=(",", ":"))
     (ROOT / "data" / "map_data.json").write_text(blob)
     (ROOT / "web" / "map_data.json").write_text(blob)
@@ -162,6 +220,8 @@ def main():
     for e in elevated:
         print(f"  {e['name']:36s} {e['area_m2']} m2, {e['kind']} at level {e['level']}")
     print(f"stairs     {len(nodes)} ({sum(n['estimated'] for n in nodes)} estimated)")
+    if boundary:
+        print(f"boundary   {boundary['area_m2']} m2, {len(boundary['points_m'])} corners, from {boundary['source']}")
     for n in notes:
         print(f"  note: {n}")
     print("wrote data/map_data.json, web/map_data.json and web/map_data.js")

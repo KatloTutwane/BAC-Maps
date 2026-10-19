@@ -17,7 +17,8 @@
  *     traced   roads, parking, yards, plazas and traced walkways. Cost x1.
  *     verified walks measured on site (paths with verified: true). Cost x0.8, so
  *              routes keep to the way people really walk when it is about as short.
- *     open     untraced ground inside the campus boundary. Cost x2.5, optional
+ *     open     untraced ground inside the campus boundary (the traced fence,
+ *              data.boundary, when there is one). Cost x2.5, optional
  *              (options.openGround = false gives "traced surfaces only").
  *     blocked  every building footprint, the rock under the chilling area, and
  *              anything the administrator blocked.
@@ -37,6 +38,7 @@
   var PAD = 4;               // grid margin around the mapped area
   var OPEN_MULT = 2.5;       // cost of walking on untraced ground (traced = 1)
   var VERIFIED_MULT = 0.8;   // cost on a verified walk; the cheapest surface, so A* scales its estimate by it
+  var WALK_WALL_GAP = 1.0;   // a walk is only preferred this far from building walls, so a freehand walk drawn into a wall cannot pull routes along the facade
   var WALKWAY_W = 2.2;       // width for traced walkways that have none recorded
   var CORRIDOR_HALF = 1.4;   // corridor width 2.8 m, measured on site
   var STUB_HALF = 1.0;       // doorway and link width, half
@@ -159,6 +161,17 @@
     var fh = options.storeyHeight || 3.2;
 
     var buildings = data.buildings.map(function (b, i) { return { i: i, name: b.name, ring: b.points_m, floors: b.floors, area: Math.abs(area2(b.points_m)) }; });
+    buildings.forEach(function (b) {
+      b.box = [Infinity, Infinity, -Infinity, -Infinity];
+      b.ring.forEach(function (p) { b.box[0] = Math.min(b.box[0], p[0]); b.box[1] = Math.min(b.box[1], p[1]); b.box[2] = Math.max(b.box[2], p[0]); b.box[3] = Math.max(b.box[3], p[1]); });
+    });
+    function nearWall(x, y, m) {
+      for (var i = 0; i < buildings.length; i++) {
+        var b = buildings[i], q = b.box; if (x < q[0] - m || x > q[2] + m || y < q[1] - m || y > q[3] + m) continue;
+        if (pip(x, y, b.ring) || ringDist(x, y, b.ring) < m) return true;
+      }
+      return false;
+    }
     var elevated = (data.elevated || []).map(function (e) { return { name: e.name, ring: e.points_m, level: e.level || 1, area: e.area_m2 }; });
 
     /* ---- grid extent ---- */
@@ -174,6 +187,7 @@
     var ox = minX - PAD, oy = minY - PAD;
     var W = Math.ceil((maxX - minX + 2 * PAD) / CELL), H = Math.ceil((maxY - minY + 2 * PAD) / CELL), N = W * H;
     var campus = grow(hull(all), 3);                        // the boundary nobody may leave
+    var fence = data.boundary && data.boundary.points_m && data.boundary.points_m.length >= 3 ? data.boundary.points_m : null;
 
     var cls = new Uint8Array(N);                            // 0 blocked, 1 traced, 2 open ground, 3 verified walk
     function traced(c) { return c === 1 || c === 3; }
@@ -194,9 +208,9 @@
       var j0 = Math.max(0, Math.floor((y0 - oy) / CELL)), j1 = Math.min(H - 1, Math.floor((y1 - oy) / CELL));
       for (var j = j0; j <= j1; j++) for (var i = i0; i <= i1; i++) if (pip(cellX(i), cellY(j), ring)) cb(j * W + i);
     }
-    function paint(ring, name, c) {
+    function paint(ring, name, c, skip) {
       var id = featNames.indexOf(name); if (id < 0) { id = featNames.length; featNames.push(name); }
-      fill(ring, function (k) { cls[k] = c; owner[k] = id; });
+      fill(ring, function (k) { if (!skip || !skip(k)) { cls[k] = c; owner[k] = id; } });
     }
 
     function edgeCells(ring, cb) {                          // every cell a wall passes through, not just cells whose centre is inside
@@ -214,7 +228,9 @@
     var cacheHit = !!base;
     if (base) { cls.set(base.cls); owner.set(base.owner); bld.set(base.bld); featNames = base.featNames.slice(); }
     else {
-      if (openGround) fill(campus, function (k) { cls[k] = 2; });
+      // untraced ground is walkable only inside the mapped area and, when it is traced, the campus fence;
+      // traced roads and paths still cross the fence, which is how the gates appear
+      if (openGround) fill(campus, function (k) { if (!fence || pip(cellX(k % W), cellY((k / W) | 0), fence)) cls[k] = 2; });
       (data.roads || []).forEach(function (r) { paint(r.points_m, r.name, 1); });
       (data.areas || []).forEach(function (a) { paint(a.points_m, a.name, 1); });
       (data.paths || []).forEach(function (p) {
@@ -222,7 +238,8 @@
         paint(ribbon(p.points_m, p.width_m || WALKWAY_W), p.name, 1);
       });
       (data.paths || []).forEach(function (p) {                // last, so a verified walk wins over the car park it crosses
-        if (p.verified && !p.indoor && !p.bridge && !(p.level || 0)) paint(ribbon(p.points_m, p.width_m || WALKWAY_W), p.name, 3);
+        if (p.verified && !p.indoor && !p.bridge && !(p.level || 0))
+          paint(ribbon(p.points_m, p.width_m || WALKWAY_W), p.name, 3, function (k) { return nearWall(cellX(k % W), cellY((k / W) | 0), WALK_WALL_GAP); });
       });
       blockSolids();
       base = { data: data, open: openGround, N: N, cls: cls.slice(), owner: owner.slice(), bld: bld.slice(), featNames: featNames.slice(), dT: null };
@@ -235,10 +252,6 @@
     blockEdits.forEach(function (w) { function m(k) { cls[k] = 0; } fill(w.points, m); edgeCells(w.points, m); });
     var gridEdited = walkEdits.length + blockEdits.length > 0;
 
-    buildings.forEach(function (b) {
-      b.box = [Infinity, Infinity, -Infinity, -Infinity];
-      b.ring.forEach(function (p) { b.box[0] = Math.min(b.box[0], p[0]); b.box[1] = Math.min(b.box[1], p[1]); b.box[2] = Math.max(b.box[2], p[0]); b.box[3] = Math.max(b.box[3], p[1]); });
-    });
     function buildingAt(x, y) {
       for (var i = 0; i < buildings.length; i++) { var b = buildings[i], q = b.box; if (x >= q[0] && x <= q[2] && y >= q[1] && y <= q[3] && pip(x, y, b.ring)) return b; }
       return null;
@@ -374,9 +387,10 @@
         doors.push({ node: id, x: D[0], y: D[1], building: B.name, name: ex.name[id - N], via: via });
       });
     });
-    // doors, rule 2: a traced outdoor path that runs into a building ends at a door in the wall
+    // doors, rule 2: a traced outdoor path that runs into a building ends at a door in the wall.
+    // Not walks: they are drawn freehand and cross walls metres from the real doors, so a door from one is a guess
     (data.paths || []).forEach(function (p) {
-      if (p.indoor || p.bridge || (p.level || 0) !== 0) return;
+      if (p.indoor || p.bridge || (p.level || 0) !== 0 || p.verified) return;
       [p.points_m, p.points_m.slice().reverse()].forEach(function (pts) {
         var B = buildingAt(pts[0][0], pts[0][1]); if (!B) return;
         var D = null, acc = 0;
@@ -984,7 +998,7 @@
       findRoute: findRoute, findRouteAsync: findRouteAsync, findRoutesAsync: findRoutesAsync, locate: locate, resolve: resolve,
       cacheStats: function () { return { size: cache.size, hits: cacheHits, searchBuffers: poolMade }; },
       walkable: walkable, move: move, nearestStair: nearestStair, buildingAt: buildingAt,
-      ways: ways, campus: campus,
+      ways: ways, campus: campus, fence: fence,
       grid: { w: W, h: H, cell: CELL, ox: ox, oy: oy, cls: cls },
       stats: { cells: N, nodes: ex.x.length, buildMs: Math.round(t1 - t0), ways: ways.length, baseCached: cacheHit },
       constants: { SPEED: SPEED, STAIR_SEC: STAIR_SEC }

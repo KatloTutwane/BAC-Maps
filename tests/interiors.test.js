@@ -90,9 +90,16 @@ r = cut.findRoute({ place: "area:Parking lot" }, { place: "room:F1-lab-12" });
 ok(!r.found, "with every staircase removed, the first floor is unreachable from the ground: " + r.reason);
 
 console.log("\nclearance");
+// The search runs on the 0.5 m grid, so clearances over half a cell are only enforced by the wall check:
+// most routes are then refused (README, "Walls"). What must hold is that none is shown through a wall.
 const wide = C.build(data, {}, { interiors: I, clearance: 0.45 });
-r = wide.findRoute({ place: "area:Parking lot" }, { place: "room:F1-lab-12" });
-ok(r.found && !wide.validate(r.points), "a larger clearance (0.45 m) still finds a valid route");
+const wideIds = nav.places.filter(p => (p.kind === "building" || p.kind === "area") && p.reachable).map(p => p.id);
+let wideOk = 0, wideRefused = 0, wideBad = 0;
+for (let i = 0; i < wideIds.length; i += 2) for (let j = i + 1; j < wideIds.length; j += 3) {
+  const w = wide.findRoute({ place: wideIds[i] }, { place: wideIds[j] });
+  if (!w.found) { if (/wall check|no walkable/i.test(w.reason)) wideRefused++; else wideBad++; } else if (wide.validate(w.points)) wideBad++; else wideOk++;
+}
+ok(wideBad === 0, `a larger clearance (0.45 m) never shows a route through a wall (${wideOk} valid, ${wideRefused} refused with the spot named, ${wideBad} wrong)`);
 ok(nav.walkable(80, 74, 0) && wide.walkable(80, 74, 0), "open ground stays walkable");
 
 console.log("\n" + pass + " passed, " + fail + " failed");

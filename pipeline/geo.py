@@ -44,8 +44,9 @@ def load_footprints(path):
 
 
 def load_kml(path):
-    """Every placemark in a Google Earth export (.kml, or .kmz which is a zipped .kml).
-    Returns (name, kind, [[lng, lat], ...]) with kind 'line' or 'polygon'.
+    """Every line and polygon in a Google Earth export (.kml, or .kmz which is a zipped .kml).
+    Returns (name, kind, [[lng, lat], ...]) with kind 'line' or 'polygon'. A placemark holding
+    several shapes (MultiGeometry) gives one entry per shape, in file order.
     Names that repeat get ' (2)', ' (3)' appended so nothing is silently lost."""
     seen, out = {}, []
     if str(path).lower().endswith(".kmz"):
@@ -55,17 +56,29 @@ def load_kml(path):
     else:
         tree = ET.parse(path)
     for pm in tree.getroot().iter(KML + "Placemark"):
-        name = pm.find(KML + "name").text.strip()
-        seen[name] = seen.get(name, 0) + 1
-        if seen[name] > 1:
-            name = f"{name} ({seen[name]})"
-        line = pm.find(f".//{KML}LineString/{KML}coordinates")
-        poly = pm.find(f".//{KML}Polygon//{KML}coordinates")
-        node, kind = (line, "line") if line is not None else (poly, "polygon")
-        if node is None:
-            continue                             # points/placemarks without geometry
-        coords = [list(map(float, t.split(",")[:2])) for t in node.text.split()]
-        if kind == "polygon" and coords[0] == coords[-1]:
-            coords = coords[:-1]
-        out.append((name, kind, coords))
+        label = pm.find(KML + "name")
+        base = (label.text or "").strip() if label is not None else ""
+        base = base or "unnamed"
+        seen[base] = seen.get(base, 0) + 1      # counted per placemark, as before, even with no shape
+        first = True
+        for g in pm.iter():
+            if g.tag == KML + "LineString":
+                node, kind = g.find(KML + "coordinates"), "line"
+            elif g.tag == KML + "Polygon":
+                node = g.find(f"{KML}outerBoundaryIs//{KML}coordinates")
+                node, kind = (node if node is not None else g.find(f".//{KML}coordinates")), "polygon"
+            else:
+                continue
+            if node is None or not (node.text or "").strip():
+                continue
+            coords = [list(map(float, t.split(",")[:2])) for t in node.text.split()]
+            if kind == "polygon" and coords[0] == coords[-1]:
+                coords = coords[:-1]
+            if len(coords) < 2:
+                continue
+            if not first:
+                seen[base] += 1
+            first = False
+            n = seen[base]
+            out.append((base if n == 1 else f"{base} ({n})", kind, coords))
     return out
