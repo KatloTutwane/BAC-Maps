@@ -3,73 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <!-- Installable app (PWA): manifest, icons and browser colours -->
   <meta name="theme-color" content="#0B6E99">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="BAC Maps">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
-  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/site/manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="32x32" href="/site/assets/icons/favicon-32.png">
+  <link rel="apple-touch-icon" href="/site/assets/icons/apple-touch-icon.png">
   <title>Sign in · BAC Maps</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
-  <!-- light or dark, set before the styles apply so the page never flashes -->
-  <script src="theme.js"></script>
-  <link rel="stylesheet" href="tokens.css">
-  <link rel="stylesheet" href="login.css">
+  <script src="/site/theme.js"></script>
+  <script type="module" crossorigin src="/site/assets/login-CL5mm4Yf.js"></script>
+  <link rel="modulepreload" crossorigin href="/site/assets/common-CevBmHET.js">
+  <link rel="stylesheet" crossorigin href="/site/assets/common-Bv5ak4C3.css">
+  <link rel="stylesheet" crossorigin href="/site/assets/login-IvcYJ6y5.css">
 </head>
 <body>
-  <main class="login">
-    <section class="login-card" aria-labelledby="login-title">
-      <a class="login-brand" href="index.html">
-        <img src="assets/bac-logo.png" alt="BAC, Botswana Accountancy College" onerror="this.parentNode.classList.add('no-logo')">
-        <span class="logo-fallback" aria-hidden="true">bac</span>
-        <span class="login-wordmark">Maps</span>
-      </a>
-
-      <h1 class="login-title" id="login-title">Dumela!</h1>
-      <p class="login-lede">Sign in to see your profile and timetable. The map works without signing in.</p>
-      <p class="login-demo"><strong>Demo build.</strong> Sign in with one of the dummy accounts listed in <code>server/seed.py</code>. Nothing here is connected to BAC.</p>
-
-      <!-- Microsoft 365 sign in. Needs BAC's approval and an app registration
-           with BAC's IT office before it can work; until then it explains that. -->
-      <button type="button" class="btn btn-secondary btn-ms" id="ms-signin">
-        <span data-icon="microsoft"></span><span>Sign in with Microsoft</span>
-      </button>
-
-      <div class="login-or" role="separator"><span>or use your BAC number</span></div>
-
-      <!-- BAC number and password, checked against the demo database by the
-           local demo server (server/server.py). -->
-      <form class="login-form" id="login-form" novalidate>
-        <label class="field">
-          <span class="field-label">Student or staff number</span>
-          <input type="text" name="username" id="bac-number" autocomplete="username" required>
-        </label>
-        <label class="field">
-          <span class="field-label">Password</span>
-          <span class="field-wrap">
-            <input type="password" name="password" id="password" autocomplete="current-password" required>
-            <button type="button" class="icon-btn field-reveal" id="reveal" aria-label="Show password" aria-pressed="false"><span data-icon="eye"></span></button>
-          </span>
-        </label>
-        <p class="field-error" id="form-error" hidden></p>
-        <button type="submit" class="btn btn-primary btn-wide"><span data-icon="sign-in"></span><span>Sign in</span></button>
-      </form>
-
-      <p class="login-notice" id="notice" role="status" hidden></p>
-
-      <a class="login-guest" href="index.html">Continue as guest</a>
-    </section>
-
-    <p class="login-foot">Botswana Accountancy College · BAC Maps</p>
-  </main>
-
-  <script src="icons.js"></script>
-  <script src="pwa.js"></script>
-  <script src="login.js"></script>
+  <div id="root"></div>
 </body>
 </html>

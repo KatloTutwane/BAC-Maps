@@ -5,3 +5,5 @@ __pycache__/
 server/campus.db
 # local editor and preview settings
 .claude/
+# React build tooling (npm install in frontend/)
+frontend/node_modules/

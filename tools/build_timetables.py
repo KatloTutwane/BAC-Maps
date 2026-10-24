@@ -1,5 +1,5 @@
 """
-Build site/data/timetables.json from the class timetables in data/timetables/.
+Build frontend/public/data/timetables.json from the class timetables in data/timetables/.
 
     python tools/build_timetables.py
 
@@ -18,7 +18,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "data" / "timetables"
-OUT = ROOT / "site" / "data" / "timetables.json"
+OUT = ROOT / "frontend" / "public" / "data" / "timetables.json"   # npm run build copies it into site/
 
 # Room code -> (label shown in the app, map place id or None for no place).
 # Confirmed by the team on 21 October 2026.

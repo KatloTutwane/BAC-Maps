@@ -1,0 +1,54 @@
+% System architecture of BAC Maps (build react-frontend bb8fe1b)
+\begin{tikzpicture}[
+  font=\footnotesize, node distance=4mm and 6mm,
+  box/.style={draw, rounded corners=2pt, align=center, minimum height=8mm, inner sep=3pt, fill=white},
+  data/.style={draw, align=center, minimum height=7mm, inner sep=3pt, fill=gray!8},
+  zone/.style={draw, dashed, rounded corners=4pt, inner sep=5pt},
+  arr/.style={-{Stealth[length=2mm]}, thick},
+  lbl/.style={font=\scriptsize\itshape, align=center}]
+
+  % ---- browser ----
+  \node[box, minimum width=44mm] (ui) {React 18 interface\\\scriptsize App, ViewStack, views};
+  \node[box, below left=9mm and -6mm of ui, minimum width=30mm] (ma) {map-adapter.js\\\scriptsize only access to the map};
+  \node[box, below right=9mm and -6mm of ui, minimum width=30mm] (na) {nav-adapter.js\\\scriptsize only access to Pathfinder};
+  \node[box, right=8mm of ui, minimum width=24mm] (st) {store.js\\\scriptsize account data};
+  \node[box, below=8mm of ma, minimum width=30mm] (cm) {campus-map.js\\\scriptsize renderer, TPS warp};
+  \node[box, below=8mm of na, minimum width=30mm] (ne) {nav-engine.js\\\scriptsize Pathfinder (A*)};
+  \node[data, below=7mm of cm, xshift=-9mm] (dr) {campus drawings\\\scriptsize two .webp files};
+  \node[data, below=7mm of $(cm)!0.5!(ne)$] (rd) {room data\\\scriptsize interiors.json};
+  \node[data, below=7mm of ne, xshift=9mm] (md) {map data\\\scriptsize map\_data, nav\_seed};
+  \node[box, above=6mm of ui, minimum width=44mm] (sw) {service worker (cache v9)};
+
+  \draw[arr] (ui) -- (ma);
+  \draw[arr] (ui) -- (na);
+  \draw[arr] (ui) -- (st);
+  \draw[arr] (ma) -- (cm);
+  \draw[arr] (na) -- (ne);
+  \draw[arr] (dr) -- (cm);
+  \draw[arr] (rd) -- (cm);
+  \draw[arr] (rd) -- (ne);
+  \draw[arr] (md) -- (ne);
+  % map data also feeds the renderer: routed below the data boxes
+  \coordinate (low) at ($(md.south)+(0,-4mm)$);
+  \draw[arr] (md.south) -- (low) -| ($(cm.south)+(11mm,0)$);
+  \draw[arr, dashed] (sw) -- node[lbl, right] {serves cached files offline} (ui);
+
+  \node[zone, fit=(sw)(ui)(ma)(na)(st)(cm)(ne)(dr)(rd)(md)(low), label={[font=\small\bfseries]above left:Browser}] (browser) {};
+
+  % ---- server ----
+  \node[box, right=30mm of st, minimum width=30mm] (srv) {server.py\\\scriptsize Python standard library};
+  \node[data, below=8mm of srv] (db) {SQLite\\\scriptsize campus.db};
+  \node[data, below=6mm of db] (tt) {timetables.json\\\scriptsize class groups};
+  \draw[arr] (st) -- node[lbl, above, align=center] {JSON /api\\HttpOnly cookie} (srv);
+  \draw[arr] (srv) -- (db);
+  \draw[arr] (tt) to[bend right=35] (srv);
+  \node[zone, fit=(srv)(db)(tt), label={[font=\small\bfseries]above:Demo server (127.0.0.1)}] {};
+
+  % ---- build time ----
+  \node[box, below=10mm of tt, minimum width=30mm] (pl) {pipeline/ and tools/\\\scriptsize Python build scripts};
+  \node[data, below=6mm of pl, align=center] (src) {Google Earth traces, GPS walks,\\campus drawings, timetable export};
+  \draw[arr] (src) -- (pl);
+  \draw[arr] (pl.west) -- node[lbl, above] {generates} (md.east -| browser.east);
+  \draw[arr] (pl) -- (tt);
+  \node[zone, fit=(pl)(src), label={[font=\small\bfseries]below:Build time (offline)}] {};
+\end{tikzpicture}

@@ -1,0 +1,56 @@
+% Use case diagram. Solid: implemented. Dashed: planned, partial or descoped (see the legend).
+\begin{tikzpicture}[
+  font=\footnotesize,
+  uc/.style={draw, ellipse, align=center, minimum width=38mm, minimum height=7mm, inner sep=1pt, fill=white},
+  ucp/.style={uc, dashed, fill=gray!10},
+  actor/.style={align=center, font=\small},
+  assoc/.style={thin},
+  gen/.style={-{Triangle[open, length=2.5mm]}, thin}]
+
+  \newcommand{\stick}[2]{% name, position
+    \begin{scope}[shift={#2}]
+      \draw (0,0.55) circle (0.17);
+      \draw (0,0.38) -- (0,-0.05) (-0.28,0.22) -- (0.28,0.22) (0,-0.05) -- (-0.22,-0.42) (0,-0.05) -- (0.22,-0.42);
+      \node[actor] at (0,-0.7) {#1};
+    \end{scope}}
+
+  % system boundary
+  \draw[rounded corners=3pt] (-3.2,-9.6) rectangle (5.2,4.1);
+  \node[font=\small\bfseries] at (1,3.8) {BAC Maps};
+
+  % guest use cases
+  \node[uc]  (u1) at (1,3.1)  {Search places};
+  \node[uc]  (u2) at (1,2.2)  {Browse directory};
+  \node[uc]  (u3) at (1,1.3)  {View place details};
+  \node[uc]  (u4) at (1,0.4)  {Switch floor};
+  \node[uc]  (u5) at (1,-0.5) {Get directions};
+  \node[uc]  (u6) at (1,-1.4) {Use current location};
+  \node[uc]  (u7) at (1,-2.3) {Preview route (Walk it)};
+  % student use cases
+  \node[uc]  (s1) at (1,-3.3) {Sign in (demo account)};
+  \node[uc]  (s2) at (1,-4.2) {View group timetable};
+  \node[uc]  (s3) at (1,-5.1) {Add or edit own class};
+  \node[uc]  (s4) at (1,-6.0) {Save a place};
+  % staff and planned
+  \node[ucp] (p0) at (1,-6.9) {Edit map data\\\scriptsize partial, browser only};
+  \node[ucp] (p1) at (1,-7.8) {Sign up / BAC sign-in\\\scriptsize planned};
+  \node[ucp] (p2) at (1,-8.7) {Scan a door with camera\\\scriptsize descoped};
+
+  \stick{Guest}{(-5,1.3)}
+  \stick{Student}{(-5,-4.6)}
+  \stick{Staff}{(7.4,-6.9)}
+
+  \foreach \u in {u1,u2,u3,u4,u5,u6,u7} \draw[assoc] (-4.7,1.3) -- (\u.west);
+  \foreach \u in {s1,s2,s3,s4,p1,p2} \draw[assoc] (-4.7,-4.6) -- (\u.west);
+  \draw[gen] (-5,-3.7) -- (-5,0.45);
+  \draw[assoc, dashed] (7.1,-6.9) -- (p0.east);
+  \draw[assoc] (7.1,-6.9) -- (s1.east);
+
+  \draw[dashed, -{Stealth[length=2mm]}] (u5.east) to[bend left=40] node[right, font=\scriptsize] {$\langle\langle$extend$\rangle\rangle$} (u6.east);
+
+  % legend
+  \node[uc, minimum width=12mm, minimum height=4mm] at (7.0,2.6) {};
+  \node[right, font=\scriptsize] at (7.7,2.6) {implemented};
+  \node[ucp, minimum width=12mm, minimum height=4mm] at (7.0,1.9) {};
+  \node[right, font=\scriptsize, align=left] at (7.7,1.9) {planned, partial\\or descoped};
+\end{tikzpicture}

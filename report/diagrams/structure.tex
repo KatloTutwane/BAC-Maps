@@ -1,0 +1,25 @@
+% C4: structure of the interface code before and after the React rebuild
+\begin{tikzpicture}[
+  font=\footnotesize, node distance=3mm,
+  f/.style={draw, align=left, minimum width=46mm, inner sep=3pt, fill=white, text width=44mm},
+  same/.style={f, fill=gray!12},
+  arr/.style={-{Stealth[length=2mm]}, thick}]
+
+  \node[font=\small\bfseries] (bt) at (0,0) {Before (commit f363c57)};
+  \node[f, below=of bt] (b1) {\textbf{site/index.html}\\ loads every script in order};
+  \node[f, below=of b1] (b2) {\textbf{app.js}, 1\,557 lines\\ state, view stack, every view, built with DOM calls};
+  \node[f, below=of b2] (b3) {\textbf{login.js}, 87 lines};
+  \node[same, below=of b3] (b4) {places.js, store.js, geo.js,\\ location.js, icons.js, pwa.js,\\ map-adapter.js, nav-adapter.js};
+  \node[f, below=of b4] (b5) {no build step;\\ hand-listed service-worker files};
+
+  \node[font=\small\bfseries] (at) at (7.2,0) {After (commit bb8fe1b)};
+  \node[f, below=of at] (a1) {\textbf{frontend/index.html} $\rightarrow$ src/main.jsx};
+  \node[f, below=of a1] (a2) {\textbf{components/}, 1\,513 lines in all\\ App.jsx (state), ViewStack.jsx,\\ views/Search, Place, Directions,\\ Profile; common.jsx; Notices.jsx};
+  \node[f, below=of a2] (a3) {\textbf{LoginPage.jsx}};
+  \node[same, below=of a3] (a4) {src/lib/: the same modules as\\ ES modules (logic unchanged)};
+  \node[f, below=of a4] (a5) {\texttt{npm run build} (Vite 5) $\rightarrow$ site/;\\ built file names written into sw.js};
+
+  \foreach \i in {1,...,5} \draw[arr, gray] (b\i.east) -- (a\i.west);
+  \node[draw, fill=gray!12, minimum width=5mm, minimum height=3mm, below=6mm of b5.south west, anchor=north west] (k) {};
+  \node[right=1mm of k, font=\scriptsize] {carried over with the same behaviour};
+\end{tikzpicture}

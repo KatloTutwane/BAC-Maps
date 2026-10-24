@@ -3,14 +3,14 @@
     pip install playwright && python -m playwright install chromium
     python tests/e2e_profile.py          (add --edge to use the installed Microsoft Edge)
 
-Starts its own demo server on a free port with a throwaway database (server/campus.db is not
-touched), signs in through the real sign in page, and checks that each student's own class
+Starts its own demo server on a free port with a throwaway database (tests/demo_server.py), signs in through the real sign in page, and checks that each student's own class
 group timetable appears on the profile without any extra step, matching site/data/timetables.json.
 Also covers guests, loading, a failed timetable download, an empty timetable, the class
 details view and the phone layout. Exit code 1 if anything fails.
 """
-import json, pathlib, socket, subprocess, sys, tempfile, time, urllib.request
+import json, pathlib, sys
 from playwright.sync_api import sync_playwright
+from demo_server import DemoServer
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "server"))
@@ -21,19 +21,6 @@ DAY = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 results = []
 def ok(cond, msg):
     results.append(bool(cond)); print(("  ok   " if cond else "  FAIL ") + msg, flush=True)
-
-def free_port():
-    s = socket.socket(); s.bind(("127.0.0.1", 0)); p = s.getsockname()[1]; s.close(); return p
-
-PORT = free_port()
-BASE = f"http://127.0.0.1:{PORT}"
-DB = pathlib.Path(tempfile.mkdtemp()) / "campus-test.db"
-launcher = ("import sys, pathlib; sys.path.insert(0, %r); import db; db.DB_PATH = pathlib.Path(%r); "
-            "import server; sys.argv = ['server.py', '--port', '%d']; server.main()") % (str(ROOT / "server"), str(DB), PORT)
-proc = subprocess.Popen([sys.executable, "-c", launcher], cwd=str(ROOT), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-for _ in range(100):
-    try: urllib.request.urlopen(BASE + "/site/login.html"); break
-    except Exception: time.sleep(0.1)
 
 def expected(group, day):
     rooms = TT["rooms"]
@@ -59,8 +46,8 @@ def open_profile(pg):
 
 def profile_text(pg): return pg.evaluate("CampusApp.state.stack.at(-1).el.textContent")
 
-try:
-    with sync_playwright() as pw:
+with DemoServer() as BASE:
+  with sync_playwright() as pw:
         browser = pw.chromium.launch(channel="msedge") if "--edge" in sys.argv else pw.chromium.launch()
         errors = []
         def page(ctx):
@@ -163,15 +150,14 @@ try:
             return r.left < c.left - 1 || r.right > c.right + 1 || e.scrollWidth > e.clientWidth + 1; }).length""")
         ok(over == 0, "timetable rows, days and the next class card fit inside the card")
         ok(pg.evaluate("[...document.querySelectorAll('#card .days .day')].every(b => b.getBoundingClientRect().height >= 44)"), "day buttons are at least 44 px tall")
-        pg.screenshot(path=str(DB.parent / "profile-phone.png"), full_page=False)
-        print("  (screenshot: " + str(DB.parent / "profile-phone.png") + ")")
+        shot = pathlib.Path(__import__("tempfile").gettempdir()) / "bac-maps-profile-phone.png"
+        pg.screenshot(path=str(shot), full_page=False)
+        print("  (screenshot: " + str(shot) + ")")
         ctx.close()
         first_ctx.close()
 
         ok(not errors, "no script errors" + ("" if not errors else ": " + "; ".join(errors[:3])))
         browser.close()
-finally:
-    proc.terminate()
 
 failed = results.count(False)
 print(f"\n{len(results) - failed} passed, {failed} failed")

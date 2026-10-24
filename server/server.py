@@ -41,11 +41,11 @@ COOKIE = "cn_session"
 SESSION_DAYS = 7
 TIME = re.compile(r"^([01]\d|2[0-3]):[0-5]\d$")
 PRIVATE = ("/server", "/.claude", "/.git", "/.venv", "/.idea", "/pipeline", "/data/raw", "/data/timetables", "/tools")   # never served as files
-TIMETABLES = ROOT / "site" / "data" / "timetables.json"
+TIMETABLES = ROOT / "frontend" / "public" / "data" / "timetables.json"
 
 
 def group_codes():
-    """Class groups the website knows, from site/data/timetables.json."""
+    """Class groups the website knows, from frontend/public/data/timetables.json."""
     try:
         return {g["code"] for g in json.loads(TIMETABLES.read_text(encoding="utf-8"))["groups"]}
     except (OSError, ValueError, KeyError):

@@ -1,0 +1,38 @@
+% Activity diagram: getting directions to a place
+\begin{tikzpicture}[
+  font=\footnotesize, node distance=5mm and 8mm,
+  act/.style={draw, rounded corners=6pt, align=center, minimum width=40mm, minimum height=7mm, fill=white},
+  dec/.style={draw, diamond, aspect=2.4, align=center, inner sep=1pt, font=\scriptsize},
+  arr/.style={-{Stealth[length=2mm]}, thick},
+  lbl/.style={font=\scriptsize}]
+
+  \node[circle, fill=black, minimum size=3mm] (start) {};
+  \node[act, below=of start] (a1) {Choose a destination\\\scriptsize search, directory or map tap};
+  \node[act, below=of a1] (a2) {Press Directions};
+  \node[dec, below=of a2] (d1) {Location allowed\\and on campus?};
+  \node[act, below left=6mm and -6mm of d1] (a3) {Start at the\\current position};
+  \node[act, below right=6mm and -6mm of d1] (a4) {Start at the Main Gate\\\scriptsize (or a chosen start)};
+  \node[act, below=20mm of d1] (a5) {Pathfinder searches (A*)\\\scriptsize best route and an alternative};
+  \node[dec, below=of a5] (d2) {Route found?};
+  \node[act, right=12mm of d2] (a6) {Show the reason\\\scriptsize e.g.\ room has no door};
+  \node[act, below=of d2] (a7) {Draw the route in the free\\part of the map; list the steps};
+  \node[dec, below=of a7] (d3) {Change start,\\alternative or walk?};
+  \node[act, right=12mm of d3] (a8) {Update the route\\or play the walk};
+  \node[circle, draw, inner sep=1.6pt, below=of d3] (end) {\tikz\fill (0,0) circle (1.6mm);};
+
+  \draw[arr] (start) -- (a1);
+  \draw[arr] (a1) -- (a2);
+  \draw[arr] (a2) -- (d1);
+  \draw[arr] (d1) -| node[lbl, above, pos=0.25] {yes} (a3);
+  \draw[arr] (d1) -| node[lbl, above, pos=0.25] {no} (a4);
+  \draw[arr] (a3) |- (a5);
+  \draw[arr] (a4) |- (a5);
+  \draw[arr] (a5) -- (d2);
+  \draw[arr] (d2) -- node[lbl, above] {no} (a6);
+  \draw[arr] (d2) -- node[lbl, right] {yes} (a7);
+  \draw[arr] (a7) -- (d3);
+  \draw[arr] (d3) -- node[lbl, above] {yes} (a8);
+  \draw[arr] (a8.north) |- (a7.east);
+  \draw[arr] (d3) -- node[lbl, right] {no} (end);
+  \draw[arr] (a6.south) |- (end.east);
+\end{tikzpicture}

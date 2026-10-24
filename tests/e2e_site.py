@@ -4,14 +4,13 @@
     pip install playwright && python -m playwright install chromium
     python tests/e2e_site.py            (add --edge to use the installed Microsoft Edge instead)
 
-Opens site/index.html from disk, like the other browser tests; location is unavailable there,
-so directions start at the Main Gate. Exit code 1 if anything fails.
+Builds nothing: run `npm run build` in frontend/ first. Starts its own demo server on a free
+port with a throwaway database (tests/demo_server.py). The browser is not given location, so
+directions start at the Main Gate. Exit code 1 if anything fails.
 """
-import pathlib, sys
+import sys
 from playwright.sync_api import sync_playwright
-
-SITE = pathlib.Path(__file__).resolve().parent.parent / "site"
-URL = (SITE / "index.html").as_uri()
+from demo_server import DemoServer
 results = []
 def ok(cond, msg):
     results.append(bool(cond)); print(("  ok   " if cond else "  FAIL ") + msg, flush=True)
@@ -41,12 +40,13 @@ VISIBLE = """() => {   // share of the drawn route on screen and not under the c
   return n ? seen / n : 0;
 }"""
 
-with sync_playwright() as pw:
+with DemoServer() as BASE, sync_playwright() as pw:
+    URL = BASE + "/site/index.html"
     browser = pw.chromium.launch(channel="msedge") if "--edge" in sys.argv else pw.chromium.launch()
-    pg = browser.new_page(viewport={"width": 1280, "height": 800}); pg.set_default_timeout(20000)
+    pg = browser.new_context(viewport={"width": 1280, "height": 800}, service_workers="block").new_page(); pg.set_default_timeout(20000)
     errors = []
     pg.on("pageerror", lambda e: errors.append(str(e)))
-    pg.goto(URL); pg.wait_for_timeout(1500)
+    pg.goto(URL); pg.wait_for_function("() => !!window.CampusApp && [...document.querySelectorAll('#campus-map img')].some(i => i.naturalWidth > 0)"); pg.wait_for_timeout(800)
     J = pg.evaluate
 
     print("\nmap")
