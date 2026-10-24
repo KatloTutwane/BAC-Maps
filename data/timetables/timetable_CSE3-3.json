@@ -1,0 +1,85 @@
+{
+  "programme": "BAC SCIS - CSE Yr 3",
+  "group": "CSE3-3",
+  "term": "SCIS 2026-2027 Semester 1 V1",
+  "source": "primetimetable.com",
+  "entries": [
+    {
+      "day": "Monday",
+      "start": "12:45",
+      "end": "14:45",
+      "course": "CSA",
+      "room": "MC-B001-3 (PC)",
+      "lecturer": "RC",
+      "group": "CSE Yr 3"
+    },
+    {
+      "day": "Tuesday",
+      "start": "12:45",
+      "end": "14:45",
+      "course": "AWD (Java)",
+      "room": "MC-Lab 1/017",
+      "lecturer": "SM",
+      "group": "CSE3-3"
+    },
+    {
+      "day": "Wednesday",
+      "start": "09:00",
+      "end": "10:00",
+      "course": "R & I",
+      "room": "#Online",
+      "lecturer": "RR",
+      "groups": [
+        "CSE Yr 3",
+        "ICT Yr 3",
+        "NSE Yr 3",
+        "ABC Yr 3"
+      ]
+    },
+    {
+      "day": "Thursday",
+      "start": "08:00",
+      "end": "10:00",
+      "course": "CSA",
+      "room": "MC-PC1/D001",
+      "lecturer": "PP",
+      "group": "CSE3-3"
+    },
+    {
+      "day": "Thursday",
+      "start": "12:45",
+      "end": "14:45",
+      "course": "IS",
+      "room": "MC-Lab 1/017",
+      "lecturer": "TG",
+      "group": "CSE3-3"
+    },
+    {
+      "day": "Thursday",
+      "start": "15:00",
+      "end": "16:00",
+      "course": "R & I",
+      "room": "MC-Lab 2/018",
+      "lecturer": "RR",
+      "group": "CSE3-3"
+    },
+    {
+      "day": "Friday",
+      "start": "08:00",
+      "end": "10:00",
+      "course": "IS",
+      "room": "MC-B001-3 (PC)",
+      "lecturer": "TG",
+      "group": "CSE Yr 3"
+    },
+    {
+      "day": "Friday",
+      "start": "10:15",
+      "end": "12:15",
+      "course": "AWD (Java)",
+      "room": "MC-B001-3 (PC)",
+      "lecturer": "SM",
+      "group": "CSE Yr 3"
+    }
+  ]
+}

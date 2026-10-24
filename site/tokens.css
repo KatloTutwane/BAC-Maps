@@ -1,0 +1,88 @@
+/* BAC Maps design tokens.
+   Every colour lives here so the brand values can be swapped in one place
+   once they are sampled from the real BAC logo.
+
+   Style: clean and airy. White floating panels with soft diffuse shadows,
+   hairline grey borders, content in light bordered cards, small crisp type. */
+:root {
+  /* brand (unverified, see WEBSITE_HANDOFF.md 2.5) */
+  --brand-cyan: #12A5DD;          /* accents only; never under white text */
+  --brand-dark: #0B6E99;          /* fills: primary buttons and active states, white text */
+  --brand-ink: #0B6E99;           /* brand blue used as text or icon colour */
+  --on-brand: #FFFFFF;
+  --selected: #EAF5FA;            /* selected row */
+
+  /* text and surfaces */
+  --text: #16233D;
+  --text-muted: #5B6578;
+  --page: #F3F4F6;
+  --surface: #FFFFFF;
+  --surface-sunken: #F5F6F8;
+  --line: #E6E8EC;                /* hairline borders */
+  --line-strong: #D3D7DE;         /* hover borders */
+  --map-placeholder: #EEF0EC;
+  --map-grid: rgba(22, 35, 61, 0.06);
+
+  /* soft diffuse shadows */
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --shadow-md: 0 4px 14px rgba(16, 24, 40, 0.08), 0 1px 3px rgba(16, 24, 40, 0.05);
+  --shadow-lg: 0 18px 44px rgba(16, 24, 40, 0.12), 0 2px 6px rgba(16, 24, 40, 0.05);
+
+  /* category accents: icon colour on a tint tile */
+  --cat-academic: #0B6E99;    --cat-academic-tint: #E3F2F8;
+  --cat-residence: #C8622A;   --cat-residence-tint: #FBEBDD;
+  --cat-health: #2D8BA0;      --cat-health-tint: #E0F1F4;
+  --cat-food: #B07A1C;        --cat-food-tint: #FBF1DC;
+  --cat-outdoor: #5F7F35;     --cat-outdoor-tint: #EEF2E2;
+  --cat-facility: #5E6B78;    --cat-facility-tint: #EBEEF1;
+
+  /* reserved for walking routes only */
+  --route: #C2185B;
+
+  /* focus ring: cyan halo with a dark core, so it holds 3:1 on white */
+  --focus-halo: var(--brand-cyan);
+  --focus-core: var(--brand-ink);
+
+  /* shape and type */
+  --radius-panel: 20px;           /* the card */
+  --radius-float: 14px;           /* floating controls and the pill */
+  --radius-item: 12px;            /* cards inside the panel */
+  --radius-control: 10px;         /* buttons and fields */
+  --tap: 44px;
+  --gutter: 16px;
+  --corner: 12px;                 /* map controls sit closer to the edges */
+  --font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Dark mode: applies when <html data-theme="dark">. theme.js sets that from
+   the user's choice in the profile (Light, Dark, or Device, which follows the
+   system); the map reads the same attribute (theme "auto").
+   Category accents and cyan are lightened about 20%. Fills under white text
+   keep the original brand blue, because a lighter blue would drop below 4.5:1. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --brand-cyan: #41B7E4;
+  --brand-ink: #41B7E4;
+  --selected: #1F3342;
+
+  --text: #ECEDEF;
+  --text-muted: #A9AEB8;
+  --page: #1A1C20;
+  --surface: #22252B;
+  --surface-sunken: #2A2D33;
+  --line: #353941;
+  --line-strong: #4A4F59;
+  --map-placeholder: #1A1C20;
+  --map-grid: rgba(255, 255, 255, 0.06);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 18px 44px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3);
+
+  --cat-academic: #3C8BAD;    --cat-academic-tint: #223543;
+  --cat-residence: #D38155;   --cat-residence-tint: #3D3333;
+  --cat-health: #57A2B3;      --cat-health-tint: #273944;
+  --cat-food: #C09549;        --cat-food-tint: #393731;
+  --cat-outdoor: #7F995D;     --cat-outdoor-tint: #2E3735;
+  --cat-facility: #7E8993;    --cat-facility-tint: #2E343F;
+}

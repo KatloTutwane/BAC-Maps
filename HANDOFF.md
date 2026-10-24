@@ -40,8 +40,8 @@
 
 ## 2. Open issues, in priority order
 
-### 2.1 Choose the website and app stack (blocks integration)
-Undecided as of this handover. The module was built to fit any of them:
+### 2.1 Website and app stack: BAC Maps, merged in (23 October 2026)
+The website and app are **BAC Maps** (`site/`): plain HTML, CSS and JavaScript, installable as a PWA, with a demo sign in server (`server/`). It was built in the separate `BAC-Maps` folder on an older copy of this map, and is now merged here and wired to this map and to Pathfinder (directions, rooms, floors). Run `python server/server.py` and open http://127.0.0.1:8765/site/. Details and open issues: `WEBSITE_HANDOFF.md`, `site/README.md`. The options below stay open for a native wrapper or a different stack:
 - **Website:** plain HTML, React or a JSP page can all load `campus-map.js` with a script tag. React would only need a small wrapper component.
 - **App:** Kotlin, Flutter, React Native or iOS can all load `embed.html` in a WebView. The bridge for each is already written.
 
@@ -162,7 +162,11 @@ Names in `config.py` must match the KML exactly. A repeated name gets " (2)" add
 ```
 campus-navigator-map/
 ├── HANDOFF.md              this file
+├── WEBSITE_HANDOFF.md      BAC Maps: layout, how the UI calls the map and Pathfinder, open issues
 ├── README.md               setup, algorithms, API, integration, update guide
+├── site/                   BAC Maps, the website and PWA (site/README.md)
+├── server/                 demo server and SQLite demo accounts for BAC Maps (server/README.md)
+├── docs/                   the first website concept image
 ├── requirements.txt        numpy, scipy, shapely, contourpy, pillow (pipeline only)
 ├── drawings/               the two draft-09 drawings used for the interiors
 ├── tests/                  nav.test.js, interiors.test.js, concurrency.test.js, walks.test.js, scenarios.test.js (node);

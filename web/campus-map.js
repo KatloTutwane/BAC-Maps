@@ -838,7 +838,7 @@
       setSprite: function (id, d) {
         var sp = sprites[id];
         if (!sp) {
-          var el = document.createElement("div"); el.className = "cm-sprite";
+          var el = document.createElement("div"); el.className = "cm-sprite"; el.setAttribute("data-sprite", id);
           el.innerHTML = '<div class="cm-halo"></div><div class="cm-arrow"></div><div class="cm-dot"></div>';
           spriteLayer.appendChild(el); sp = sprites[id] = { el: el, arrow: el.querySelector(".cm-arrow"), d: d };
         }
@@ -898,7 +898,7 @@
     });
   }
 
-  var CampusMap = { mount: mount, load: load, version: "2.1.0" };
+  var CampusMap = { mount: mount, load: load, version: "2.1.1" };
   if (typeof module !== "undefined" && module.exports) module.exports = CampusMap;
   global.CampusMap = CampusMap;
 })(typeof window !== "undefined" ? window : this);

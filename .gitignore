@@ -1,3 +1,7 @@
 __pycache__/
 *.pyc
 .idea/
+# demo database, rebuilt from server/seed.py
+server/campus.db
+# local editor and preview settings
+.claude/

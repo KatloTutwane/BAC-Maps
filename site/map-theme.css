@@ -1,0 +1,39 @@
+/* BAC Maps: how the campus map sits in the site.
+
+   The map is the two campus drawings (web/renders/), so its colours are the
+   drawings' own and the same in light and dark mode. The site only sets what
+   the map adds on top: the background around the drawings, the selection
+   colour, the focus ring and the location dot. The background follows the
+   Light, Dark or Device setting (<html data-theme>, set by theme.js). */
+
+/* empty space around the drawings, like the reference's light ground */
+#campus-map .cm-root { --cm-bg: #F4F5F7 !important; --cm-halo: #F4F5F7 !important; }
+:root[data-theme="dark"] #campus-map .cm-root { --cm-bg: #1B2128 !important; }
+
+/* Selection: the module outlines a selected building in blue; use the
+   brand ink. Magenta stays the route's alone. */
+#campus-map .cm-root { --cm-select: var(--brand-ink) !important; }
+
+/* Focus frame: the module focuses the map on every press, which drew a frame
+   around the whole map after each click or tap. Keyboard users still need to
+   see the map has focus, so keep a ring for them in the site's own focus
+   colours; app.js marks the page data-input="pointer" after a press. */
+#campus-map .cm-root:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--focus-core), inset 0 0 0 5px var(--focus-halo);
+}
+.app[data-input="pointer"] #campus-map .cm-root:focus-visible { box-shadow: none; }
+
+/* The user's location: the map's own "me" sprite (map-adapter.js), styled
+   as the site's pulsing cyan dot. GPS gives no heading, so no arrow. */
+#campus-map [data-sprite="me"] .cm-arrow { display: none; }
+#campus-map [data-sprite="me"] .cm-dot {
+  width: 18px; height: 18px; left: -9px; top: -9px;
+  border-width: 3px; box-shadow: 0 1px 4px rgba(16, 24, 40, 0.35);
+}
+#campus-map [data-sprite="me"] .cm-halo {
+  width: 18px; height: 18px; left: -9px; top: -9px;
+  opacity: .35; animation: pulse 2s ease-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  #campus-map [data-sprite="me"] .cm-halo { animation: none; width: 30px; height: 30px; left: -15px; top: -15px; opacity: .2; }
+}
