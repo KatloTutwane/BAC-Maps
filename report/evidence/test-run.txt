@@ -1,0 +1,61 @@
+2026-10-24T12:22:10+02:00
+v24.14.1
+Python 3.12.10
+=== nav
+  ok   can move across the car park
+  ok   moving into a wall is stopped or slid
+
+29 passed, 0 failed
+=== interiors
+  ok   a larger clearance (0.45 m) never shows a route through a wall (16 valid, 75 refused with the spot named, 0 wrong)
+  ok   open ground stays walkable
+
+29 passed, 0 failed
+=== scenarios
+  ok   demo, Office 10 down to Lab 8 (first floor, stairs, ground): 625 positions, all on walkable ground
+  ok   demo, Staff parking 1 to Hostel 3 (outdoors): 1046 positions, all on walkable ground
+
+24 passed, 0 failed
+=== walks
+  ok   91 routes found, none missing
+  ok   none crosses a wall or leaves walkable ground (0 fail the wall check, 0 leave it)
+
+66 passed, 0 failed
+=== concurrency
+  ok   15 overlapping searches give the same routes as clean runs (0 wrong)
+  ok   a cancelled search stops and reports it
+=== e2e_site
+  ok   on a phone the route sits above the card (100% visible)
+  ok   reopening from the pill brings the route back
+  ok   every visible button in the card is at least 44 px tall (0 smaller)
+  ok   no script errors
+
+35 passed, 0 failed
+=== e2e_profile
+  ok   timetable rows, days and the next class card fit inside the card
+  ok   day buttons are at least 44 px tall
+  (screenshot: C:\Users\KATLOT~1\AppData\Local\Temp\bac-maps-profile-phone.png)
+  ok   no script errors
+
+40 passed, 0 failed
+=== e2e_floors
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝
+=== e2e_core
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝
+=== e2e_perf
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝

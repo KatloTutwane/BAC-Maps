@@ -1,0 +1,146 @@
+{
+  "date": "2026-10-24T12:27:01",
+  "os": "Windows-11-10.0.26300-SP0",
+  "python": "3.12.10",
+  "runs_per_profile": 5,
+  "security": {
+    "wrong_password": 401,
+    "unknown_user": 401,
+    "no_session_classes": 401,
+    "cookie_flags": {
+      "HttpOnly": true,
+      "SameSite=Strict": true
+    },
+    "other_user_list_contains": false,
+    "other_user_edit": 404,
+    "owner_still_has_after_other_delete": true,
+    "bad_group": 400,
+    "bad_class_times": 400,
+    "after_logout": 401,
+    "private_files": {
+      "/server/campus.db": 404,
+      "/server/seed.py": 404,
+      "/.git/config": 404,
+      "/data/timetables/": 404,
+      "/tools/build_timetables.py": 404,
+      "/site/../server/db.py": 404
+    }
+  },
+  "browser": "Microsoft Edge 155.0.4283.62 (headless, Playwright)",
+  "timings": {
+    "localhost, no throttling": {
+      "map_ready": {
+        "runs": [
+          1394,
+          1171,
+          1543,
+          1152,
+          2072
+        ],
+        "median": 1394,
+        "max": 2072,
+        "min": 1152
+      },
+      "floor_ground": {
+        "runs": [
+          17,
+          22,
+          10,
+          16,
+          15
+        ],
+        "median": 16,
+        "max": 22,
+        "min": 10
+      },
+      "floor_first": {
+        "runs": [
+          95,
+          45,
+          24,
+          42,
+          25
+        ],
+        "median": 42,
+        "max": 95,
+        "min": 24
+      },
+      "route_lab14": {
+        "runs": [
+          122,
+          86,
+          93,
+          90,
+          129
+        ],
+        "median": 93,
+        "max": 129,
+        "min": 86
+      },
+      "transferred_kB": 2468
+    },
+    "4G-like network (9 Mbit/s down, 1.5 Mbit/s up, 60 ms) and 4x CPU slowdown": {
+      "map_ready": {
+        "runs": [
+          3439,
+          3412,
+          4689,
+          3441,
+          3412
+        ],
+        "median": 3439,
+        "max": 4689,
+        "min": 3412
+      },
+      "floor_ground": {
+        "runs": [
+          31,
+          48,
+          44,
+          37,
+          38
+        ],
+        "median": 38,
+        "max": 48,
+        "min": 31
+      },
+      "floor_first": {
+        "runs": [
+          49,
+          72,
+          65,
+          93,
+          50
+        ],
+        "median": 65,
+        "max": 93,
+        "min": 49
+      },
+      "route_lab14": {
+        "runs": [
+          465,
+          485,
+          546,
+          484,
+          450
+        ],
+        "median": 484,
+        "max": 546,
+        "min": 450
+      },
+      "transferred_kB": 2495
+    }
+  },
+  "offline": {
+    "cache": {
+      "caches": [
+        "cn-shell-v9",
+        "cn-runtime-v9"
+      ],
+      "entries": 26
+    },
+    "map_offline": true,
+    "route_offline": true,
+    "api_offline": "network error"
+  }
+}

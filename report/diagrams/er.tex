@@ -1,0 +1,22 @@
+% Entity-relationship diagram of the demo database (server/db.py)
+\begin{tikzpicture}[
+  font=\footnotesize,
+  ent/.style={draw, rectangle split, rectangle split parts=2, align=left, inner sep=3pt, minimum width=36mm,
+              rectangle split part fill={gray!15, white}},
+  rel/.style={thick}]
+
+  \node[ent] (users) at (0,0) {\textbf{users}
+    \nodepart{two}\underline{id} INTEGER\\ bac\_number TEXT (unique)\\ name TEXT\\ role TEXT (student, staff)\\ programme TEXT\\ year INTEGER\\ group\_code TEXT\\ password\_salt TEXT\\ password\_hash TEXT\\ is\_demo INTEGER};
+  \node[ent] (sessions) at (6.2,3.2) {\textbf{sessions}
+    \nodepart{two}\underline{token} TEXT\\ user\_id INTEGER (FK)\\ created\_at TEXT};
+  \node[ent] (classes) at (6.2,0) {\textbf{classes}
+    \nodepart{two}\underline{id} INTEGER\\ user\_id INTEGER (FK)\\ title TEXT\\ place\_id TEXT\\ days TEXT\\ start TEXT\\ end TEXT};
+  \node[ent] (saved) at (6.2,-3.4) {\textbf{saved\_places}
+    \nodepart{two}\underline{user\_id} INTEGER (FK)\\ \underline{place\_id} TEXT\\ created\_at TEXT};
+  \node[draw, dashed, align=left, inner sep=3pt] (tt) at (-0.2,-4.6) {\textbf{timetables.json} (file, not a table)\\ group code $\rightarrow$ list of classes};
+
+  \draw[rel] (users.east |- sessions) -- node[above, pos=0.12] {1} node[above, pos=0.88] {0..*} (sessions.west);
+  \draw[rel] (users.east |- classes) -- node[above, pos=0.12] {1} node[above, pos=0.88] {0..*} (classes.west);
+  \draw[rel] (users.east |- saved) -- node[above, pos=0.12] {1} node[above, pos=0.88] {0..*} (saved.west);
+  \draw[dashed, thick] (users.south) -- node[right] {group\_code} (tt.north);
+\end{tikzpicture}
