@@ -11,8 +11,7 @@
  *   "origin": { "lng0", "lat0", "m_lng", "m_lat" }
  * into map_data.json, and pass it to Geo.toMap (it is used when present).
  */
-(function (global) {
-  "use strict";
+const global = window;
 
   var ORIGIN = {
     lng0: 25.925603744727113,     // westmost footprint longitude
@@ -46,5 +45,7 @@
     return { lat: o.lat0 - y / o.m_lat, lng: o.lng0 + x / o.m_lng };
   }
 
-  global.Geo = { toMap: toMap, toLatLng: toLatLng, onCampus: onCampus, ORIGIN: ORIGIN };
-})(window);
+  const Geo = { toMap: toMap, toLatLng: toLatLng, onCampus: onCampus, ORIGIN: ORIGIN };
+
+window.Geo = Geo;   // for the console and the browser tests
+export default Geo;

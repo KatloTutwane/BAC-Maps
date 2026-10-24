@@ -27,8 +27,7 @@
  * and come from site/data/timetables.json (real timetables, built by
  * tools/build_timetables.py). Days: 0 Sunday ... 6 Saturday.
  */
-(function (global) {
-  "use strict";
+const global = window;
 
   var KEYS = { saved: "cn.saved.v1", classes: "cn.classes.v1", group: "cn.group.v1" };
   var API = "/api/";
@@ -224,7 +223,7 @@
     }
   };
 
-  global.Store = {
+  const Store = {
     ready: ready,
     loaded: function () { return loaded; },
     dataError: function () { return dataError; },
@@ -269,4 +268,6 @@
       return function () { listeners = listeners.filter(function (f) { return f !== fn; }); };
     }
   };
-})(window);
+
+window.Store = Store;   // for the console and the browser tests
+export default Store;

@@ -9,129 +9,30 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="BAC Maps">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
-  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/site/manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="32x32" href="/site/assets/icons/favicon-32.png">
+  <link rel="apple-touch-icon" href="/site/assets/icons/apple-touch-icon.png">
   <title>BAC Maps</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
   <!-- light or dark, set before the styles apply so the page never flashes -->
-  <script src="theme.js"></script>
-  <link rel="stylesheet" href="tokens.css">
-  <link rel="stylesheet" href="app.css">
-  <link rel="stylesheet" href="map-theme.css">
+  <script src="/site/theme.js"></script>
+  <script type="module" crossorigin src="/site/assets/main-BqPjbnoz.js"></script>
+  <link rel="modulepreload" crossorigin href="/site/assets/common-CevBmHET.js">
+  <link rel="stylesheet" crossorigin href="/site/assets/common-Bv5ak4C3.css">
+  <link rel="stylesheet" crossorigin href="/site/assets/main-CgHQL_7u.css">
 </head>
 <body>
-  <main class="app" id="app" data-dock="collapsed">
-    <h1 class="sr-only">BAC Maps, Botswana Accountancy College</h1>
+  <div id="root"></div>
 
-    <!-- The map module (or the placeholder) mounts here. Only map-adapter.js touches it. -->
-    <div id="campus-map" class="map"></div>
-
-    <!-- Top bar. Phones show only the left tab (logo, floors, Whole campus);
-         desktop adds the wordmark, a search pill and the right hand actions. -->
-    <header class="topbar" id="topbar">
-      <div class="topbar-left">
-        <!-- BAC logo straight over the map, not part of the floor tab.
-             Shows "bac" if assets/bac-logo.png is missing. -->
-        <div class="brand" id="brand-logo">
-          <img src="assets/bac-logo.png" alt="BAC, Botswana Accountancy College"
-               onerror="this.parentNode.classList.add('no-logo')">
-          <span class="logo-fallback" aria-hidden="true">bac</span>
-          <span class="wordmark desktop-only" aria-hidden="true">Maps</span>
-        </div>
-        <div class="map-controls raised" id="map-controls">
-          <div class="floor-switch" role="group" aria-label="Floor">
-            <button type="button" class="seg" data-floor="all" aria-pressed="true">All</button>
-            <button type="button" class="seg" data-floor="0" aria-pressed="false">Ground</button>
-            <button type="button" class="seg" data-floor="1" aria-pressed="false">First</button>
-          </div>
-          <button type="button" class="icon-btn btn-whole phone-only" id="whole-campus" aria-label="Whole campus" title="Whole campus">
-            <span data-icon="fit"></span>
-          </button>
-        </div>
-      </div>
-
-      <form class="top-search raised desktop-only" id="top-search" role="search">
-        <label class="sr-only" for="top-search-input">Search places on campus</label>
-        <input type="search" id="top-search-input" placeholder="Dumela! Where to on campus?" autocomplete="off" enterkeyhint="search">
-        <button type="button" class="icon-btn top-search-clear" id="top-search-clear" aria-label="Clear search" hidden><span data-icon="close"></span></button>
-        <button type="submit" class="top-search-go" aria-label="Search"><span data-icon="search"></span></button>
-      </form>
-
-      <div class="top-actions desktop-only">
-        <button type="button" class="icon-btn" id="top-directory" aria-label="Directory" title="Directory"><span data-icon="directory"></span></button>
-        <!-- Profile: opens the profile view. Generic person until assets/profile.png exists -->
-        <button type="button" class="pill-avatar top-avatar" id="top-avatar" aria-label="Profile" title="Profile" aria-controls="card">
-          <img src="assets/profile.png" alt="" width="40" height="40" onerror="this.parentNode.classList.add('no-photo')">
-          <span class="avatar-fallback" data-icon="user"></span>
-        </button>
-      </div>
-    </header>
-
-    <!-- Map tools: compass (top right on phones), and on desktop Whole campus
-         and zoom, bottom right like the reference -->
-    <div class="map-tools" id="map-tools">
-      <button type="button" class="raised icon-btn compass" id="compass" aria-label="Compass. Reset map rotation">
-        <span class="compass-tile"><span class="compass-needle" id="compass-needle" data-icon="compass"></span></span>
-      </button>
-      <button type="button" class="raised icon-btn tool desktop-only" id="fit-campus" aria-label="Whole campus" title="Whole campus"><span data-icon="fit"></span></button>
-      <div class="zoom raised desktop-only" role="group" aria-label="Zoom">
-        <button type="button" class="icon-btn" id="zoom-in" aria-label="Zoom in"><span data-icon="plus"></span></button>
-        <button type="button" class="icon-btn" id="zoom-out" aria-label="Zoom out"><span data-icon="minus"></span></button>
-      </div>
-    </div>
-
-    <!-- Collapsed: the pill -->
-    <div class="pill raised" id="pill">
-      <!-- Profile: opens the profile view. No accounts yet, so it shows a
-           generic person until assets/profile.png exists. -->
-      <button type="button" class="pill-avatar" id="pill-avatar" aria-label="Profile" aria-controls="card">
-        <img src="assets/profile.png" alt="" width="40" height="40"
-             onerror="this.parentNode.classList.add('no-photo')">
-        <span class="avatar-fallback" data-icon="user"></span>
-      </button>
-      <button type="button" class="pill-prompt" id="pill-search" aria-controls="card" aria-expanded="false">
-        Dumela! Where to on campus?
-      </button>
-      <button type="button" class="icon-btn pill-dir" id="pill-directory" aria-label="Directory" aria-controls="card" aria-expanded="false">
-        <span data-icon="directory"></span>
-      </button>
-    </div>
-
-    <!-- Expanded: the card. Views slide inside #views. -->
-    <section class="card" id="card" aria-label="BAC Maps" inert>
-      <div class="card-grip" id="card-grip">
-        <button type="button" class="handle" id="card-handle" aria-label="Collapse"><span></span></button>
-      </div>
-      <div class="card-tools">
-        <button type="button" class="icon-btn desktop-only" id="card-min" aria-label="Minimise"><span data-icon="minus"></span></button>
-        <button type="button" class="icon-btn" id="card-close" aria-label="Close"><span data-icon="close"></span></button>
-      </div>
-      <div class="views" id="views"></div>
-      <!-- Install app (Android), the iOS install hint, and the offline notice -->
-      <div class="card-notices" id="card-notices"></div>
-    </section>
-  </main>
-
-  <!-- The map module, its data and the campus drawings' placement (interiors.js,
-       with the images in ../web/renders/). If any is missing the adapter shows a placeholder. -->
+  <!-- The map module, its data and the campus drawings' placement, and
+       Pathfinder: plain scripts in ../web, shared with web/pathfinder.html -->
   <script src="../web/campus-map.js"></script>
   <script src="../web/map_data.js"></script>
   <script src="../web/interiors.js"></script>
-  <!-- Pathfinder: the navigation engine and the links the traced data can't provide -->
   <script src="../web/nav_seed.js"></script>
   <script src="../web/nav-engine.js"></script>
 
-  <script src="icons.js"></script>
-  <script src="map-adapter.js"></script>
-  <script src="nav-adapter.js"></script>
-  <script src="places.js"></script>
-  <script src="store.js"></script>
-  <script src="geo.js"></script>
-  <script src="location.js"></script>
-  <script src="pwa.js"></script>
-  <script src="app.js"></script>
 </body>
 </html>

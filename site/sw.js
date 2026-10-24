@@ -1,6 +1,8 @@
 /* BAC Maps service worker: lets the installed app open offline.
  *
- * To ship an update, change VERSION. The new worker precaches everything
+ * Built from frontend/sw-template.js by `npm run build`, which fills in the
+ * React bundles (their names carry a content hash). To ship an update,
+ * change VERSION. The new worker precaches everything
  * again under the new name, takes over, and deletes the old caches.
  *
  *   App shell (pages, CSS, JS, icons, campus-map.js, nav-engine.js, the two
@@ -13,7 +15,7 @@
  *     time they load.
  *   /api/ (demo sign in, profile, timetable): never cached, always network.
  */
-const VERSION = "v8";   // v8: routes are placed beside or above the panel, never behind it
+const VERSION = "v9";   // v9: the interface rebuilt in React
 const SHELL = "cn-shell-" + VERSION;
 const RUNTIME = "cn-runtime-" + VERSION;
 
@@ -22,21 +24,13 @@ const SHELL_FILES = [
   "index.html",
   "login.html",
   "manifest.webmanifest",
-  "tokens.css",
-  "app.css",
-  "map-theme.css",
-  "login.css",
-  "icons.js",
-  "map-adapter.js",
-  "nav-adapter.js",
-  "places.js",
-  "store.js",
-  "geo.js",
-  "location.js",
-  "pwa.js",
   "theme.js",
-  "app.js",
-  "login.js",
+  "assets/main-CgHQL_7u.css",
+  "assets/login-IvcYJ6y5.css",
+  "assets/common-Bv5ak4C3.css",
+  "assets/main-BqPjbnoz.js",
+  "assets/login-CL5mm4Yf.js",
+  "assets/common-CevBmHET.js",
   "assets/bac-logo.png",
   "assets/icons/icon-192.png",
   "assets/icons/icon-512.png",

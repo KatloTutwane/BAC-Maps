@@ -15,8 +15,7 @@
  *   PWA.dismissIosHint()
  *   PWA.on(fn)           fn() whenever any of the above may have changed
  */
-(function (global) {
-  "use strict";
+const global = window;
 
   var HINT_KEY = "cn.iosInstallHint.dismissed";
   var deferred = null, listeners = [];
@@ -59,7 +58,7 @@
     if (mq.addEventListener) mq.addEventListener("change", emit);
   }
 
-  global.PWA = {
+  const PWA = {
     standalone: standalone,
     canInstall: function () { return !!deferred && !standalone(); },
     install: function () {
@@ -79,4 +78,6 @@
     },
     on: function (fn) { listeners.push(fn); }
   };
-})(window);
+
+window.PWA = PWA;   // for the console and the browser tests
+export default PWA;

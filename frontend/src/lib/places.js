@@ -9,8 +9,7 @@
  * Pathfinder engine ("building:Block D", "room:F1-lt", ...), or `point`
  * ({ x, y, level }) where the engine has a position but no place.
  */
-(function (global) {
-  "use strict";
+const global = window;
 
   var CATEGORIES = [
     { key: "academic", label: "Academic and offices", icon: "cat-academic" },
@@ -184,7 +183,7 @@
     return list.filter(function (p) { return chip.test.test(p.name); });
   }
 
-  global.Places = {
+  const Places = {
     CATEGORIES: CATEGORIES,
     CHIPS: CHIPS,
     category: function (key) { return CAT[key]; },
@@ -193,4 +192,6 @@
     forChip: forChip,
     canonicalId: function (id) { return OLD_IDS[id] || id; }
   };
-})(window);
+
+window.Places = Places;   // for the console and the browser tests
+export default Places;

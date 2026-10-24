@@ -31,8 +31,7 @@
  *   MapAdapter.walk(route, onLevel, onDone) -> a marker walks the route; returns stop()
  *   MapAdapter.on("select" | "rotate" | "view", fn) -> unsubscribe
  */
-(function (global) {
-  "use strict";
+const global = window;
 
   /* Stand in for map.features() while the real map is missing. Real names
      from the brief; no floors, sizes or other details are invented. */
@@ -273,7 +272,7 @@
   }
   function stopWalk() { if (walking) { var w = walking; walking = null; w(); } }
 
-  global.MapAdapter = {
+  const MapAdapter = {
     init: init,
     isLive: function () { return live; },
     places: places,
@@ -299,4 +298,6 @@
     stopWalk: stopWalk,
     on: on
   };
-})(window);
+
+window.MapAdapter = MapAdapter;   // for the console and the browser tests
+export default MapAdapter;

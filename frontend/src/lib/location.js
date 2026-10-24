@@ -13,8 +13,8 @@
  *
  * GPS cannot tell floors apart, so a found position is always level 0.
  */
-(function (global) {
-  "use strict";
+import Geo from "./geo.js";
+const global = window;
 
   var watchId = null, listener = null, current = { status: "idle" }, permission = null;
 
@@ -75,5 +75,7 @@
 
   function listen(fn) { listener = fn; if (fn) fn(current); }
 
-  global.Locator = { start: start, stop: stop, listen: listen, current: function () { return current; } };
-})(window);
+  const Locator = { start: start, stop: stop, listen: listen, current: function () { return current; } };
+
+window.Locator = Locator;   // for the console and the browser tests
+export default Locator;

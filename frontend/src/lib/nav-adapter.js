@@ -20,8 +20,7 @@
  * browser's localStorage; they are applied here too, exactly as the
  * pathfinder applies them.
  */
-(function (global) {
-  "use strict";
+const global = window;
 
   var EDIT_KEY = "campus-navigator.nav-edits.v1";      // same key as web/pathfinder.js
   var EDIT_GROUPS = ["places", "links", "blocked", "walkable", "access"];
@@ -110,7 +109,7 @@
     return String(text || "").replace(/\bMain buildin\b/g, "Main Building").replace(/\bChilling area\b/g, "Chilling Area");
   }
 
-  global.NavAdapter = {
+  const NavAdapter = {
     init: init,
     ready: function () { return init(); },
     isAvailable: available,
@@ -120,4 +119,6 @@
     cancel: function () { seq++; },
     clean: clean
   };
-})(window);
+
+window.NavAdapter = NavAdapter;   // for the console and the browser tests
+export default NavAdapter;

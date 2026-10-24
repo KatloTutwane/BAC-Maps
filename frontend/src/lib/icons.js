@@ -1,7 +1,6 @@
 /* Inline SVG line icons. Icons.svg(name) returns markup; Icons.hydrate(root)
    fills every element with a data-icon attribute. */
-(function (global) {
-  "use strict";
+const global = window;
 
   var PATHS = {
     search: '<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.4-4.4"/>',
@@ -51,5 +50,7 @@
     });
   }
 
-  global.Icons = { svg: svg, hydrate: hydrate, has: function (n) { return n in PATHS; } };
-})(window);
+  const Icons = { svg: svg, hydrate: hydrate, has: function (n) { return n in PATHS; }, paths: function (n) { return PATHS[n] || ""; } };
+
+window.Icons = Icons;   // for the console and the browser tests
+export default Icons;
