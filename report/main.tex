@@ -451,9 +451,9 @@ Before this change, BAC Maps showed an approximate block map and its Directions 
 \caption{C1, Directions before and after joining Pathfinder}\label{fig:c1-directions}
 \end{figure}
 
-\lstinputlisting[language=Java, firstline=64, lastline=71, caption={Correcting the drawings' paths for the website (frontend/src/lib/map-adapter.js, lines 64--71)}, label={lst:drawings}]{../frontend/src/lib/map-adapter.js}
+\lstinputlisting[language=Java, firstline=64, lastline=71, caption={Correcting the drawings' paths for the website (frontend/src/lib/map-adapter.js, lines 64--71)}, label={lst:drawings}]{code/map-adapter.js}
 
-\lstinputlisting[language=Java, firstline=51, lastline=66, caption={Finding the gates from the verified walks (frontend/src/lib/nav-adapter.js, lines 51--66)}, label={lst:landmarks}]{../frontend/src/lib/nav-adapter.js}
+\lstinputlisting[language=Java, firstline=51, lastline=66, caption={Finding the gates from the verified walks (frontend/src/lib/nav-adapter.js, lines 51--66)}, label={lst:landmarks}]{code/nav-adapter.js}
 
 \subsection{The route-finding algorithm}\label{sec:algorithm}
 Pathfinder builds a 0.5\,m grid of the campus outdoors and a graph of corridors, doors and stairs indoors. Walking on a traced path costs its length, on a verified walk 0.8 times its length, and on untraced open ground 2.5 times; a flight of stairs costs 10.4 and adds 12 seconds. The search expands nodes in order of
@@ -462,7 +462,7 @@ Pathfinder builds a 0.5\,m grid of the campus outdoors and a graph of corridors,
 \end{equation}
 where $g(n)$ is the cost of the best path found to node $n$, $\mathbf{x}_n$ its position, $T$ the set of goal nodes and 0.8 the cost per metre of the cheapest surface. Because no surface is cheaper than 0.8, $h$ never overestimates and the route found is the cheapest \citep{hart1968}. Listing~\ref{lst:astar} shows the estimate and the edge relaxation. For the alternative route, nodes of the first route cost 2.2 times more, and a second search finds a route that differs from it. Searches run in 8\,ms slices so that the page never freezes, and every route is checked against walls every 25\,cm before it is shown.
 
-\lstinputlisting[language=Java, firstline=694, lastline=703, caption={A* estimate and edge relaxation in Pathfinder (web/nav-engine.js, lines 694--703)}, label={lst:astar}]{../web/nav-engine.js}
+\lstinputlisting[language=Java, firstline=694, lastline=703, caption={A* estimate and edge relaxation in Pathfinder (web/nav-engine.js, lines 694--703)}, label={lst:astar}]{code/nav-engine.js}
 
 \subsection{Change C2: the timetable on the profile}
 Before this change, the profile listed only classes the student had typed in, and students in older databases had no class group, so no timetable could be shown (Figure~\ref{fig:c2}). The profile now shows the student's class-group timetable by day, with the next class and directions to it, and loading, error and empty states. Listing~\ref{lst:groups} gives existing demonstration students their group when an older database is upgraded.
@@ -474,7 +474,7 @@ Before this change, the profile listed only classes the student had typed in, an
 \caption{C2, the profile before and after adding the class-group timetable}\label{fig:c2}
 \end{figure}
 
-\lstinputlisting[language=Python, firstline=83, lastline=89, caption={Upgrading an older database (server/db.py, lines 83--89)}, label={lst:groups}]{../server/db.py}
+\lstinputlisting[language=Python, firstline=83, lastline=89, caption={Upgrading an older database (server/db.py, lines 83--89)}, label={lst:groups}]{code/db.py}
 
 \subsection{Change C3: routes kept clear of the panel}
 Routes were centred on the screen, so on desktop the panel covered much of them, and on a phone the card covered the lower half of the map. The route is now placed in the largest free part of the map beside or below the panel (Listing~\ref{lst:free}), and the panel becomes shorter while a route is shown. The before image in Figure~\ref{fig:c3} was reproduced on the current build by switching this placement off, because the earlier build cannot show routes at all. The site suite measures that 100\% of the route is visible after the change on a phone.
@@ -486,7 +486,7 @@ Routes were centred on the screen, so on desktop the panel covered much of them,
 \caption{C3, the route before and after placing it in the free part of the map}\label{fig:c3}
 \end{figure}
 
-\lstinputlisting[language=Java, firstline=73, lastline=89, caption={Free areas of the map around the panel (frontend/src/components/App.jsx, lines 73--89)}, label={lst:free}]{../frontend/src/components/App.jsx}
+\lstinputlisting[language=Java, firstline=73, lastline=89, caption={Free areas of the map around the panel (frontend/src/components/App.jsx, lines 73--89)}, label={lst:free}]{code/App.jsx}
 
 \subsection{Change C4: the interface rebuilt in React}
 The interface was rewritten from one 1\,557-line script that built every view with DOM calls into React components built with Vite (Figure~\ref{fig:structure}). The map, Pathfinder and their adapters keep the same logic, and the interface looks the same, so no before-and-after screenshot is given. The build writes its file names into the service worker, which now caches 26 files under version~9. Three defects appeared while porting and were fixed before release: an extra wrapper around icons broke their styling, the start picker's header and list did not share state, and the view stack hid views during their slide animation.
@@ -628,7 +628,7 @@ After one visit with the service worker enabled, the browser held two caches wit
 
 Listing~\ref{lst:login} shows how the server checks a password and starts a session.
 
-\lstinputlisting[language=Python, firstline=165, lastline=175, caption={Sign-in on the demonstration server (server/server.py, lines 165--175)}, label={lst:login}]{../server/server.py}
+\lstinputlisting[language=Python, firstline=165, lastline=175, caption={Sign-in on the demonstration server (server/server.py, lines 165--175)}, label={lst:login}]{code/server.py}
 
 \section{Data Interpretation}
 Table~\ref{tab:status} gives the status of each requirement, with its evidence.
